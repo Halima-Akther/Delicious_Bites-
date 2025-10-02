@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Delicious Bites | Our Story & Mission</title>
+    <meta name="description"
+        content="Learn about Delicious Bites - our story, mission, values, and the passionate team behind our delicious meals. Discover why we're the top choice for food lovers.">
+    <link rel="icon" href="img/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#ef4444',
+                        'primary-dark': '#b91c1c',
+                        'accent': '#f59e0b',
+                        'accent-dark': '#d97706',
+                        'secondary': '#10b981',
+                        'dark': '#1f2937'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'bounce-in': 'bounceIn 1s ease-out',
+                        'scale-in': 'scaleIn 0.6s ease-out',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s infinite',
+                        'slide-in-right': 'slideInRight 0.8s ease-out',
+                        'wiggle': 'wiggle 1s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        slideUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        bounceIn: { '0%': { opacity: '0', transform: 'scale(0.3)' }, '50%': { opacity: '1', transform: 'scale(1.05)' }, '70%': { transform: 'scale(0.9)' }, '100%': { transform: 'scale(1)' } },
+                        scaleIn: { '0%': { opacity: '0', transform: 'scale(0.8)' }, '100%': { opacity: '1', transform: 'scale(1)' } },
+                        float: { '0%,100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-20px)' } },
+                        slideInRight: { '0%': { opacity: '0', transform: 'translateX(100px)' }, '100%': { opacity: '1', transform: 'translateX(0)' } },
+                        wiggle: { '0%, 100%': { transform: 'rotate(-3deg)' }, '50%': { transform: 'rotate(3deg)' } }
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hover-lift {
+            transition: transform 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen bg-gray-50">
+
+    <!-- Enhanced Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto flex items-center justify-between px-6 py-4">
+            <!-- Logo -->
+            <div class="text-2xl font-bold text-red-600 flex items-center space-x-2">
+                <i class="fas fa-utensils"></i>
+                <a href="index.html" class="hover:text-primary-dark transition-colors">Delicious Bites</a>
+            </div>
+
+            <!-- Menu Links -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html"
+                    class="text-gray-800 hover:text-primary-dark font-medium transition-colors relative group">
+                    Home
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="menu.html"
+                    class="text-gray-800 hover:text-primary-dark font-medium transition-colors relative group">
+                    Menu
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="product.html"
+                    class="text-gray-800 hover:text-primary-dark font-medium transition-colors relative group">
+                    Products
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="about.html" class="text-primary font-medium transition-colors relative group">
+                    About Us
+                    <span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary transition-all duration-300"></span>
+                </a>
+                <a href="blog.html"
+                    class="text-gray-800 hover:text-primary-dark font-medium transition-colors relative group">
+                    Blog
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="contact.html"
+                    class="text-gray-800 hover:text-primary-dark font-medium transition-colors relative group">
+                    Contact
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="reviews.html"
+                    class="text-gray-800 hover:text-primary-dark font-medium transition-colors relative group">
+                    Reviews
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                </a>
+            </nav>
+
+            <!-- Icons -->
+            <div class="flex items-center space-x-6">
+                <a href="card.html" class="relative text-gray-800 hover:text-red-600 transition-colors group">
+                    <i class="fas fa-shopping-cart text-xl group-hover:scale-110 transition-transform"></i>
+                    <span
+                        class="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full animate-pulse">0</span>
+                </a>
+                <a href="login.html" class="text-gray-800 hover:text-red-600 transition-colors group">
+                    <i class="fas fa-user text-xl group-hover:scale-110 transition-transform"></i>
+                </a>
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-gray-800 hover:text-red-600 transition-colors" id="mobile-menu-button">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white shadow-lg" id="mobile-menu">
+            <div class="px-6 py-4 space-y-4">
+                <a href="index.html"
+                    class="block text-gray-800 hover:text-primary-dark font-medium transition-colors">Home</a>
+                <a href="menu.html"
+                    class="block text-gray-800 hover:text-primary-dark font-medium transition-colors">Menu</a>
+                <a href="product.html"
+                    class="block text-gray-800 hover:text-primary-dark font-medium transition-colors">Products</a>
+                <a href="about.html" class="block text-primary font-medium transition-colors">About Us</a>
+                <a href="blog.html"
+                    class="block text-gray-800 hover:text-primary-dark font-medium transition-colors">Blog</a>
+                <a href="contact.html"
+                    class="block text-gray-800 hover:text-primary-dark font-medium transition-colors">Contact</a>
+                <a href="reviews.html"
+                    class="block text-gray-800 hover:text-primary-dark font-medium transition-colors">Reviews</a>
+                <a href="card.html"
+                    class="block text-gray-800 hover:text-primary-dark font-medium transition-colors">Cart</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-red-600 to-red-800 text-white overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-10 left-10 w-20 h-20 bg-white rounded-full animate-float"></div>
+            <div class="absolute top-40 right-20 w-16 h-16 bg-accent rounded-full animate-float"
+                style="animation-delay: 2s;"></div>
+            <div class="absolute bottom-20 left-1/4 w-12 h-12 bg-white rounded-full animate-float"
+                style="animation-delay: 4s;"></div>
+        </div>
+
+        <div class="container mx-auto px-4 py-32 flex flex-col items-center text-center relative z-10">
+            <div
+                class="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6 animate-fade-in">
+                <i class="fas fa-heart text-accent"></i>
+                <span class="text-sm font-medium">Our Story Since 2008</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6 animate-slide-up">
+                About <span class="text-accent">Delicious Bites</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-100 leading-relaxed max-w-3xl mx-auto animate-slide-up"
+                style="animation-delay: 0.2s">
+                Discover our journey, meet our passionate team, and learn what makes us the most loved restaurant in
+                town
+            </p>
+            <div class="flex flex-wrap justify-center gap-6 mt-8 animate-slide-up" style="animation-delay: 0.4s">
+                <div class="text-center">
+                    <div class="text-3xl font-bold">15+</div>
+                    <div class="text-gray-200">Years Experience</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold">50+</div>
+                    <div class="text-gray-200">Award Winning Chefs</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold">200+</div>
+                    <div class="text-gray-200">Menu Items</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold">10K+</div>
+                    <div class="text-gray-200">Happy Customers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="animate-slide-up">
+                    <div class="inline-flex items-center px-4 py-2 bg-primary/10 text-primary rounded-full mb-6">
+                        <i class="fas fa-book-open mr-2"></i>
+                        <span class="font-semibold">Our Humble Beginnings</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                        From a Small Kitchen to a <span class="text-primary">Culinary Destination</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                        Founded in 2008 by Chef Antonio Lerro, Delicious Bites began as a small family-owned restaurant
+                        with just 10 tables and a dream to share authentic, homemade flavors with our community. What
+                        started as a passion project quickly grew into a beloved local institution.
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-8">
+                        Today, we continue to honor our roots while embracing innovation, creating a dining experience
+                        that blends tradition with contemporary culinary artistry. Our commitment to quality, freshness,
+                        and exceptional service remains unchanged.
+                    </p>
+
+                    <div class="flex items-center gap-8">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary mb-1">2008</div>
+                            <div class="text-sm text-gray-600">Founded</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary mb-1">3</div>
+                            <div class="text-sm text-gray-600">Locations</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary mb-1">15+</div>
+                            <div class="text-sm text-gray-600">Awards</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative animate-slide-up" style="animation-delay: 0.2s">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                        alt="Our Restaurant" class="w-full rounded-3xl shadow-2xl">
+                    <div class="absolute -top-6 -left-6 w-24 h-24 bg-primary/20 rounded-full animate-float"></div>
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-accent/20 rounded-full animate-float"
+                        style="animation-delay: 1s"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-slide-up">
+                <div class="inline-flex items-center px-4 py-2 bg-accent/10 text-accent rounded-full mb-6">
+                    <i class="fas fa-bullseye mr-2"></i>
+                    <span class="font-semibold">Our Purpose</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                    Mission & <span class="text-accent">Vision</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Guiding principles that shape every dish we create and every experience we deliver
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-white rounded-3xl shadow-xl p-8 md:p-10 hover-lift animate-scale-in">
+                    <div
+                        class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 mx-auto md:mx-0">
+                        <i class="fas fa-rocket text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4 text-center md:text-left">Our Mission
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        To create unforgettable dining experiences by crafting delicious, nutritious meals from the
+                        freshest ingredients, served with warmth and hospitality that makes every customer feel like
+                        family.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-secondary mt-1"></i>
+                            <span class="text-gray-700">Source 90% of ingredients from local farms</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-secondary mt-1"></i>
+                            <span class="text-gray-700">Reduce food waste by 50% through innovative practices</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-secondary mt-1"></i>
+                            <span class="text-gray-700">Maintain a 4.8+ customer satisfaction rating</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-xl p-8 md:p-10 hover-lift animate-scale-in"
+                    style="animation-delay: 0.2s">
+                    <div
+                        class="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mb-6 mx-auto md:mx-0">
+                        <i class="fas fa-eye text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4 text-center md:text-left">Our Vision
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        To become the most beloved restaurant brand in the region, recognized for culinary excellence,
+                        sustainable practices, and community engagement that enriches lives through food.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-star text-accent mt-1"></i>
+                            <span class="text-gray-700">Expand to 10 locations by 2030</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-star text-accent mt-1"></i>
+                            <span class="text-gray-700">Launch a culinary training program for aspiring chefs</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-star text-accent mt-1"></i>
+                            <span class="text-gray-700">Achieve carbon neutrality in all operations</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-slide-up">
+                <div class="inline-flex items-center px-4 py-2 bg-primary/10 text-primary rounded-full mb-6">
+                    <i class="fas fa-gem mr-2"></i>
+                    <span class="font-semibold">Our Foundation</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                    Core <span class="text-primary">Values</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    The principles that guide every decision we make and every dish we create
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div
+                    class="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 p-8 border border-gray-100 hover:border-primary/20 text-center animate-scale-in">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-star text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Excellence</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        We never compromise on quality, from ingredient selection to final presentation.
+                    </p>
+                </div>
+
+                <div class="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 p-8 border border-gray-100 hover:border-primary/20 text-center animate-scale-in"
+                    style="animation-delay: 0.1s">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-700 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-leaf text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Sustainability</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        We prioritize eco-friendly practices and support local farmers and producers.
+                    </p>
+                </div>
+
+                <div class="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 p-8 border border-gray-100 hover:border-primary/20 text-center animate-scale-in"
+                    style="animation-delay: 0.2s">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-accent to-accent-dark rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-users text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Community</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        We believe in building relationships and giving back to the communities we serve.
+                    </p>
+                </div>
+
+                <div class="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 p-8 border border-gray-100 hover:border-primary/20 text-center animate-scale-in"
+                    style="animation-delay: 0.3s">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-700 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-lightbulb text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Innovation</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        We continuously evolve our menu and techniques while honoring culinary traditions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-slide-up">
+                <div class="inline-flex items-center px-4 py-2 bg-primary/10 text-primary rounded-full mb-6">
+                    <i class="fas fa-users mr-2"></i>
+                    <span class="font-semibold">Meet Our Team</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                    Culinary <span class="text-primary">Experts</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Passionate professionals dedicated to creating exceptional dining experiences
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Team Member 1 -->
+                <div
+                    class="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 group animate-scale-in">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80"
+                            alt="Chef Antonio Lerro"
+                            class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="text-xl font-bold">Antonio Lerro</h3>
+                            <p class="text-gray-200">Founder & Head Chef</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">
+                            With over 20 years of culinary experience, Antonio brings passion and creativity to every
+                            dish.
+                        </p>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 group animate-scale-in"
+                    style="animation-delay: 0.1s">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+                            alt="Chef Maria Rodriguez"
+                            class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="text-xl font-bold">Maria Rodriguez</h3>
+                            <p class="text-gray-200">Pastry Chef</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">
+                            Maria's exquisite desserts have won multiple awards and are the perfect ending to any meal.
+                        </p>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 group animate-scale-in"
+                    style="animation-delay: 0.2s">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=695&q=80"
+                            alt="Sous Chef James Wilson"
+                            class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="text-xl font-bold">James Wilson</h3>
+                            <p class="text-gray-200">Sous Chef</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">
+                            James specializes in modern fusion cuisine, bringing global flavors to our classic dishes.
+                        </p>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 group animate-scale-in"
+                    style="animation-delay: 0.3s">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1566554273541-37a9ca77b91f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+                            alt="Sommelier Sarah Johnson"
+                            class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="text-xl font-bold">Sarah Johnson</h3>
+                            <p class="text-gray-200">Sommelier</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600 mb-4">
+                            Sarah curates our extensive wine list, creating perfect pairings for every dish on our menu.
+                        </p>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 animate-fade-in">
+                <a href="contact.html#careers"
+                    class="inline-flex items-center bg-primary text-white font-bold px-8 py-4 rounded-xl hover:bg-primary-dark hover:scale-105 transition-all duration-300">
+                    Join Our Team
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="animate-slide-up">
+                    <div class="inline-flex items-center px-4 py-2 bg-secondary/10 text-secondary rounded-full mb-6">
+                        <i class="fas fa-seedling mr-2"></i>
+                        <span class="font-semibold">Our Commitment</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                        Sustainable & <span class="text-secondary">Eco-Friendly</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                        We believe great food shouldn't come at the expense of our planet. That's why we've implemented
+                        comprehensive sustainability practices throughout our operations.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-truck text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-800 mb-1">Local Sourcing</h3>
+                                <p class="text-gray-600">85% of our ingredients come from local farms within 100 miles
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-recycle text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-800 mb-1">Zero Waste</h3>
+                                <p class="text-gray-600">We've reduced food waste by 65% through composting and creative
+                                    reuse</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-solar-panel text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-800 mb-1">Renewable Energy</h3>
+                                <p class="text-gray-600">Our kitchens are powered by 100% renewable energy sources</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative animate-slide-up" style="animation-delay: 0.2s">
+                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+                        alt="Fresh Local Ingredients" class="w-full rounded-3xl shadow-2xl">
+                    <div class="absolute -top-6 -left-6 w-24 h-24 bg-secondary/20 rounded-full animate-float"></div>
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-accent/20 rounded-full animate-float"
+                        style="animation-delay: 1s"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards & Recognition -->
+    <section class="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-slide-up">
+                <div class="inline-flex items-center px-4 py-2 bg-accent/10 text-accent rounded-full mb-6">
+                    <i class="fas fa-trophy mr-2"></i>
+                    <span class="font-semibold">Recognition</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                    Awards & <span class="text-accent">Accolades</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Honored to be recognized by industry leaders and our valued customers
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-3xl shadow-lg p-8 text-center hover-lift animate-scale-in">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-award text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Best Restaurant 2023</h3>
+                    <p class="text-gray-600">Food & Hospitality Awards</p>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-lg p-8 text-center hover-lift animate-scale-in"
+                    style="animation-delay: 0.1s">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-medal text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Sustainability Champion</h3>
+                    <p class="text-gray-600">Green Restaurant Association</p>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-lg p-8 text-center hover-lift animate-scale-in"
+                    style="animation-delay: 0.2s">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-star text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Chef of the Year 2022</h3>
+                    <p class="text-gray-600">Culinary Excellence Awards</p>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-lg p-8 text-center hover-lift animate-scale-in"
+                    style="animation-delay: 0.3s">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-heart text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Customer Choice Award</h3>
+                    <p class="text-gray-600">Local Food Guide 2023</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-primary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">
+                Ready to Experience <span class="text-accent">Delicious Bites</span>?
+            </h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto animate-slide-up" style="animation-delay: 0.2s">
+                Join thousands of satisfied customers who have made us their favorite dining destination
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 animate-slide-up" style="animation-delay: 0.4s">
+                <a href="menu.html"
+                    class="inline-flex items-center justify-center bg-accent text-white font-bold px-8 py-4 rounded-xl hover:bg-accent-dark hover:scale-105 transition-all duration-300">
+                    <i class="fas fa-utensils mr-2"></i>
+                    View Our Menu
+                </a>
+                <a href="contact.html"
+                    class="inline-flex items-center justify-center bg-white text-primary font-bold px-8 py-4 rounded-xl hover:bg-gray-100 hover:scale-105 transition-all duration-300">
+                    <i class="fas fa-map-marker-alt mr-2"></i>
+                    Visit Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="bg-dark text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="text-2xl font-bold text-white mb-4 flex items-center space-x-2">
+                        <i class="fas fa-utensils text-accent"></i>
+                        <span>Delicious Bites</span>
+                    </div>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Crafting unforgettable dining experiences with passion, quality ingredients, and culinary
+                        excellence since 2008.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html"
+                                class="text-gray-400 hover:text-white transition-colors flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 text-accent group-hover:translate-x-1 transition-transform"></i>
+                                Home
+                            </a></li>
+                        <li><a href="menu.html"
+                                class="text-gray-400 hover:text-white transition-colors flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 text-accent group-hover:translate-x-1 transition-transform"></i>
+                                Our Menu
+                            </a></li>
+                        <li><a href="about.html"
+                                class="text-gray-400 hover:text-white transition-colors flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 text-accent group-hover:translate-x-1 transition-transform"></i>
+                                About Us
+                            </a></li>
+                        <li><a href="blog.html"
+                                class="text-gray-400 hover:text-white transition-colors flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 text-accent group-hover:translate-x-1 transition-transform"></i>
+                                Blog & Recipes
+                            </a></li>
+                        <li><a href="contact.html"
+                                class="text-gray-400 hover:text-white transition-colors flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 text-accent group-hover:translate-x-1 transition-transform"></i>
+                                Contact
+                            </a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Contact Info</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt mt-1 text-accent"></i>
+                            <span class="text-gray-400">123 Gourmet Street<br>Food District, FD 12345</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-accent"></i>
+                            <span class="text-gray-400">+1 (555) 123-4567</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-accent"></i>
+                            <span class="text-gray-400">hello@deliciousbites.com</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-clock text-accent"></i>
+                            <span class="text-gray-400">Mon-Sun: 11AM - 10PM</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Stay Updated</h3>
+                    <p class="text-gray-400 mb-4">Subscribe to get recipes, special offers, and updates.</p>
+                    <form class="flex mb-4">
+                        <input type="email" placeholder="Your email"
+                            class="flex-1 px-4 py-3 rounded-l-lg focus:outline-none text-gray-800">
+                        <button type="submit"
+                            class="bg-accent hover:bg-accent-dark px-4 py-3 rounded-r-lg transition-colors">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    <p class="text-sm text-gray-500">No spam. Unsubscribe anytime.</p>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-700 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div class="text-gray-400 text-sm">
+                        © 2024 Delicious Bites. All rights reserved. | Crafted with <i
+                            class="fas fa-heart text-red-500"></i> for food lovers
+                    </div>
+                    <div class="flex space-x-6 text-sm">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop"
+        class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full shadow-lg hover:bg-primary-dark hover:scale-110 transition-all duration-300 opacity-0">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', function () {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0');
+                backToTopButton.classList.add('opacity-100');
+            } else {
+                backToTopButton.classList.remove('opacity-100');
+                backToTopButton.classList.add('opacity-0');
+            }
+        });
+
+        backToTopButton.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('shadow-xl', 'bg-white/95', 'backdrop-blur-sm');
+            } else {
+                navbar.classList.remove('shadow-xl', 'bg-white/95', 'backdrop-blur-sm');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
