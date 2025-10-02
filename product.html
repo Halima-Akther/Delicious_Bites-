@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Delicious Bites</title>
+    <link rel="icon" href="img/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .products-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background-color: #ef4444;
+            color: white;
+        }
+
+        .add-to-cart {
+            transition: all 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            background-color: #b91c1c;
+            transform: scale(1.05);
+        }
+
+        .mobile-menu {
+            transition: max-height 0.5s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+
+        .price-tag {
+            background-color: #ef4444;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .rating-stars {
+            color: #fbbf24;
+        }
+
+        .quick-filter {
+            transition: all 0.3s ease;
+        }
+
+        .quick-filter.active {
+            background-color: #ef4444;
+            color: white;
+        }
+
+        .sale-badge {
+            background-color: #10b981;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center py-4 px-6">
+            <div class="logo text-2xl font-bold text-red-600 flex items-center">
+                <i class="fas fa-utensils mr-2"></i>
+                <a href="index.html">Delicious Bites</a>
+            </div>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">Home</a>
+                <a href="menu.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">Menu</a>
+                <a href="product.html"
+                    class="text-red-600 font-medium transition-colors border-b-2 border-red-600">Products</a>
+                <a href="about.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">About Us</a>
+                <a href="blog.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">Blog</a>
+                <a href="contact.html"
+                    class="text-gray-800 hover:text-red-600 font-medium transition-colors">Contact</a>
+                <a href="reviews.html"
+                    class="text-gray-800 hover:text-red-600 font-medium transition-colors">Reviews</a>
+            </nav>
+
+            <!-- Icons and Mobile Menu Button -->
+            <div class="flex items-center space-x-4">
+                <a href="cart.html" class="relative text-gray-800 hover:text-red-600 transition-colors">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span id="cart-count"
+                        class="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">3</span>
+                </a>
+                <a href="login.html" class="text-gray-800 hover:text-red-600 transition-colors">
+                    <i class="fas fa-user text-xl"></i>
+                </a>
+                <button id="mobile-menu-button" class="md:hidden text-gray-800">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-white px-6 py-4 border-t">
+            <div class="flex flex-col space-y-4">
+                <a href="index.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">Home</a>
+                <a href="menu.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">Menu</a>
+                <a href="product.html" class="text-red-600 font-medium transition-colors">Products</a>
+                <a href="about.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">About Us</a>
+                <a href="blog.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">Blog</a>
+                <a href="contact.html"
+                    class="text-gray-800 hover:text-red-600 font-medium transition-colors">Contact</a>
+                <a href="reviews.html"
+                    class="text-gray-800 hover:text-red-600 font-medium transition-colors">Reviews</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="products-hero text-white py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4">Our Products</h1>
+            <p class="mt-4 text-lg md:text-xl max-w-2xl mx-auto">Discover our premium food products, carefully crafted
+                with the finest ingredients for an exceptional culinary experience.</p>
+            <div class="mt-8">
+                <a href="#products"
+                    class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-8 rounded-full inline-flex items-center transition-colors">
+                    Shop Now
+                    <i class="fas fa-arrow-down ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Filters -->
+    <section class="py-8 bg-white border-b">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="quick-filter bg-red-600 text-white py-2 px-4 rounded-full active">All Products</button>
+                <button class="quick-filter bg-gray-100 text-gray-800 py-2 px-4 rounded-full hover:bg-gray-200">Best
+                    Sellers</button>
+                <button class="quick-filter bg-gray-100 text-gray-800 py-2 px-4 rounded-full hover:bg-gray-200">New
+                    Arrivals</button>
+                <button class="quick-filter bg-gray-100 text-gray-800 py-2 px-4 rounded-full hover:bg-gray-200">On
+                    Sale</button>
+                <button
+                    class="quick-filter bg-gray-100 text-gray-800 py-2 px-4 rounded-full hover:bg-gray-200">Vegan</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Section -->
+    <section id="products" class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Sidebar Filters -->
+        <aside class="bg-white p-6 rounded-lg shadow space-y-6 h-fit sticky top-32">
+            <h3 class="text-xl font-bold text-red-600">Filters</h3>
+
+            <!-- Search -->
+            <div>
+                <h4 class="font-semibold mb-2">Search</h4>
+                <div class="relative">
+                    <input type="text" id="searchInput" placeholder="Search products..."
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                    <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
+                </div>
+            </div>
+
+            <!-- Category -->
+            <div>
+                <h4 class="font-semibold mb-2">Category</h4>
+                <div class="space-y-2">
+                    <label class="flex items-center">
+                        <input type="checkbox" class="category mr-2 rounded text-red-600 focus:ring-red-500"
+                            value="Main Course">
+                        <span>Main Course</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" class="category mr-2 rounded text-red-600 focus:ring-red-500"
+                            value="Dessert">
+                        <span>Dessert</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" class="category mr-2 rounded text-red-600 focus:ring-red-500"
+                            value="Drinks">
+                        <span>Drinks</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" class="category mr-2 rounded text-red-600 focus:ring-red-500"
+                            value="Appetizer">
+                        <span>Appetizers</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" class="category mr-2 rounded text-red-600 focus:ring-red-500"
+                            value="Breakfast">
+                        <span>Breakfast</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" class="category mr-2 rounded text-red-600 focus:ring-red-500"
+                            value="Salad">
+                        <span>Salads</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Type -->
+            <div>
+                <h4 class="font-semibold mb-2">Type</h4>
+                <div class="space-y-2">
+                    <label class="flex items-center">
+                        <input type="checkbox" class="concern mr-2 rounded text-red-600 focus:ring-red-500"
+                            value="Vegan">
+                        <span>Vegan</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" class="concern mr-2 rounded text-red-600 focus:ring-red-500"
+                            value="Spicy">
+                        <span>Spicy</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" class="concern mr-2 rounded text-red-600 focus:ring-red-500"
+                            value="Sweet">
+                        <span>Sweet</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" class="concern mr-2 rounded text-red-600 focus:ring-red-500"
+                            value="Gluten-Free">
+                        <span>Gluten-Free</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" class="concern mr-2 rounded text-red-600 focus:ring-red-500"
+                            value="Low-Carb">
+                        <span>Low-Carb</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Price -->
+            <div>
+                <h4 class="font-semibold mb-2">Price Range</h4>
+                <input type="range" id="priceRange" min="0" max="50" step="1" value="50" class="w-full">
+                <div class="flex justify-between text-sm text-gray-600">
+                    <span>$0</span>
+                    <span>Up to $<span id="priceValue">50</span></span>
+                </div>
+            </div>
+
+            <!-- Rating -->
+            <div>
+                <h4 class="font-semibold mb-2">Rating</h4>
+                <div class="space-y-2">
+                    <label class="flex items-center">
+                        <input type="radio" name="rating" class="rating mr-2" value="4">
+                        <span class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </span>
+                        <span class="ml-2">& above</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="radio" name="rating" class="rating mr-2" value="3">
+                        <span class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </span>
+                        <span class="ml-2">& above</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="radio" name="rating" class="rating mr-2" value="2">
+                        <span class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </span>
+                        <span class="ml-2">& above</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Sort -->
+            <div>
+                <h4 class="font-semibold mb-2">Sort By</h4>
+                <select id="sortSelect"
+                    class="w-full border px-2 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                    <option value="default">Default</option>
+                    <option value="low-high">Price: Low to High</option>
+                    <option value="high-low">Price: High to Low</option>
+                    <option value="rating">Best Rated</option>
+                    <option value="name">Name: A to Z</option>
+                </select>
+            </div>
+
+            <!-- Clear Filters -->
+            <button id="clearFilters"
+                class="w-full bg-gray-200 text-gray-800 py-2 rounded-lg hover:bg-gray-300 transition-colors">
+                Clear All Filters
+            </button>
+        </aside>
+
+        <!-- Product Grid -->
+        <div class="md:col-span-3">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+                <h2 class="text-3xl font-bold text-gray-800">Our <span class="text-red-600">Products</span></h2>
+                <div class="mt-2 md:mt-0 text-gray-600">
+                    Showing <span id="productCount">18</span> products
+                </div>
+            </div>
+
+            <div id="productGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Product cards will be added here by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-red-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Join Our Foodie Community</h2>
+            <p class="text-red-100 mb-8 max-w-2xl mx-auto">Subscribe to our newsletter and get exclusive offers, new
+                product alerts, and cooking tips delivered to your inbox.</p>
+            <form class="max-w-md mx-auto flex">
+                <input type="email" placeholder="Your email address"
+                    class="w-full px-4 py-3 rounded-l-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-red-500">
+                <button type="submit"
+                    class="bg-red-800 hover:bg-red-900 px-6 py-3 rounded-r-lg font-semibold transition-colors whitespace-nowrap">
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-red-600 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-utensils mr-2"></i>
+                        Delicious Bites
+                    </h3>
+                    <p class="text-gray-100 mb-4">Fresh and tasty meals made with love and high-quality ingredients.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-100 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-100 hover:text-white transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-100 hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-100 hover:text-white transition-colors">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-100 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="menu.html" class="text-gray-100 hover:text-white transition-colors">Menu</a></li>
+                        <li><a href="blog.html" class="text-gray-100 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="about.html" class="text-gray-100 hover:text-white transition-colors">About Us</a>
+                        </li>
+                        <li><a href="reviews.html" class="text-gray-100 hover:text-white transition-colors">Reviews</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start space-x-2">
+                            <i class="fas fa-map-marker-alt mt-1 text-white"></i>
+                            <span class="text-gray-100">123 Food Street, Gourmet City</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-phone text-white"></i>
+                            <span class="text-gray-100">+1 (234) 567-8900</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-envelope text-white"></i>
+                            <span class="text-gray-100">info@deliciousbites.com</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-100 mb-4">Subscribe to get recipes and updates from Delicious Bites.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email"
+                            class="px-4 py-2 w-full rounded-l-md focus:outline-none text-gray-800">
+                        <button type="submit"
+                            class="bg-red-500 hover:bg-red-700 px-4 py-2 rounded-r-md transition-colors">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-red-700 mt-10 pt-6 text-center text-gray-200">
+                <p>© 2025 Delicious Bites. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('open');
+        });
+
+        const productGrid = document.getElementById("productGrid");
+        const cartCountEl = document.getElementById("cart-count");
+        const productCountEl = document.getElementById("productCount");
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cartCountEl.textContent = cart.length;
+
+        // Enhanced products data with more diverse products
+        const products = [
+            {
+                name: "Truffle Mushroom Pasta",
+                category: "Main Course",
+                concern: "Vegan",
+                price: 18.99,
+                rating: 4.5,
+                reviews: 24,
+                image: "https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1450&q=80",
+                description: "Creamy pasta with wild mushrooms and black truffle oil"
+            },
+            {
+                name: "Chocolate Lava Cake",
+                category: "Dessert",
+                concern: "Sweet",
+                price: 9.99,
+                rating: 5,
+                reviews: 36,
+                image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+                description: "Rich chocolate cake with a molten center"
+            },
+            {
+                name: "Fresh Lemonade",
+                category: "Drinks",
+                concern: "Vegan",
+                price: 4.99,
+                rating: 4,
+                reviews: 18,
+                image: "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+                description: "Refreshing homemade lemonade with mint"
+            },
+            {
+                name: "Spicy Thai Noodles",
+                category: "Main Course",
+                concern: "Spicy",
+                price: 14.99,
+                rating: 4.5,
+                reviews: 31,
+                image: "https://images.unsplash.com/photo-1552611052-33e04de081de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80",
+                description: "Stir-fried noodles with vegetables and spicy sauce"
+            },
+            {
+                name: "Artisan Ice Cream",
+                category: "Dessert",
+                concern: "Sweet",
+                price: 7.99,
+                rating: 4.5,
+                reviews: 42,
+                image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                description: "Handcrafted ice cream in various flavors"
+            },
+            {
+                name: "Mint Mojito",
+                category: "Drinks",
+                concern: "Vegan",
+                price: 6.99,
+                rating: 4,
+                reviews: 22,
+                image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+                description: "Refreshing mint and lime mocktail"
+            },
+            {
+                name: "Avocado Bruschetta",
+                category: "Appetizer",
+                concern: "Vegan",
+                price: 8.99,
+                rating: 4,
+                reviews: 15,
+                image: "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1610&q=80",
+                description: "Toasted bread topped with avocado and tomatoes"
+            },
+            {
+                name: "Grilled Salmon",
+                category: "Main Course",
+                concern: "Gluten-Free",
+                price: 22.99,
+                rating: 4.5,
+                reviews: 28,
+                image: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+                description: "Fresh salmon with lemon butter sauce"
+            },
+            {
+                name: "Berry Cheesecake",
+                category: "Dessert",
+                concern: "Sweet",
+                price: 11.99,
+                rating: 5,
+                reviews: 39,
+                image: "https://images.unsplash.com/photo-1524351199678-941a58a3df50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
+                description: "Creamy cheesecake with mixed berry topping"
+            },
+            // PREVIOUSLY ADDED PRODUCTS
+            {
+                name: "Mediterranean Bowl",
+                category: "Main Course",
+                concern: "Vegan",
+                price: 16.99,
+                rating: 4.7,
+                reviews: 33,
+                image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                description: "Quinoa bowl with fresh vegetables and tahini dressing"
+            },
+            {
+                name: "Avocado Toast",
+                category: "Breakfast",
+                concern: "Vegan",
+                price: 12.99,
+                rating: 4.3,
+                reviews: 27,
+                image: "https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+                description: "Sourdough toast with smashed avocado and seasonings"
+            },
+            {
+                name: "Greek Salad",
+                category: "Salad",
+                concern: "Vegan",
+                price: 13.99,
+                rating: 4.2,
+                reviews: 19,
+                image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1384&q=80",
+                description: "Fresh vegetables with feta cheese and olive oil"
+            },
+            {
+                name: "Berry Smoothie Bowl",
+                category: "Breakfast",
+                concern: "Vegan",
+                price: 10.99,
+                rating: 4.6,
+                reviews: 41,
+                image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+                description: "Thick smoothie bowl topped with fresh fruits and nuts"
+            },
+            {
+                name: "Caprese Sandwich",
+                category: "Main Course",
+                concern: "Vegetarian",
+                price: 14.99,
+                rating: 4.4,
+                reviews: 23,
+                image: "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+                description: "Fresh mozzarella, tomatoes, and basil on ciabatta"
+            },
+            {
+                name: "Chicken Caesar Wrap",
+                category: "Main Course",
+                concern: "Low-Carb",
+                price: 15.99,
+                rating: 4.5,
+                reviews: 35,
+                image: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1380&q=80",
+                description: "Grilled chicken with Caesar dressing in a wrap"
+            },
+            {
+                name: "Fruit Tart",
+                category: "Dessert",
+                concern: "Sweet",
+                price: 8.99,
+                rating: 4.8,
+                reviews: 29,
+                image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+                description: "Buttery crust with custard and fresh fruits"
+            },
+            {
+                name: "Iced Coffee",
+                category: "Drinks",
+                concern: "Vegan",
+                price: 5.99,
+                rating: 4.1,
+                reviews: 17,
+                image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1460&q=80",
+                description: "Chilled coffee with a hint of vanilla"
+            },
+            {
+                name: "Vegetable Spring Rolls",
+                category: "Appetizer",
+                concern: "Vegan",
+                price: 7.99,
+                rating: 4.3,
+                reviews: 21,
+                image: "https://images.unsplash.com/photo-1598214887286-5f912b5c5714?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1325&q=80",
+                description: "Crispy rolls filled with fresh vegetables"
+            },
+            {
+                name: "Chocolate Chip Cookies",
+                category: "Dessert",
+                concern: "Sweet",
+                price: 6.99,
+                rating: 4.9,
+                reviews: 47,
+                image: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80",
+                description: "Classic cookies with melty chocolate chips"
+            },
+            // NEW PRODUCTS ADDED BELOW
+            {
+                name: "Beef Burger",
+                category: "Main Course",
+                concern: "Spicy",
+                price: 16.99,
+                rating: 4.6,
+                reviews: 52,
+                image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1398&q=80",
+                description: "Juicy beef patty with fresh vegetables and special sauce"
+            },
+            {
+                name: "Matcha Latte",
+                category: "Drinks",
+                concern: "Vegan",
+                price: 5.99,
+                rating: 4.4,
+                reviews: 38,
+                image: "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
+                description: "Creamy matcha green tea with steamed milk"
+            },
+            {
+                name: "Vegetable Curry",
+                category: "Main Course",
+                concern: "Spicy",
+                price: 15.99,
+                rating: 4.5,
+                reviews: 44,
+                image: "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                description: "Mixed vegetables in aromatic coconut curry sauce"
+            },
+            {
+                name: "Blueberry Pancakes",
+                category: "Breakfast",
+                concern: "Sweet",
+                price: 12.99,
+                rating: 4.7,
+                reviews: 61,
+                image: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1380&q=80",
+                description: "Fluffy pancakes with fresh blueberries and maple syrup"
+            },
+            {
+                name: "Caesar Salad",
+                category: "Salad",
+                concern: "Low-Carb",
+                price: 13.99,
+                rating: 4.3,
+                reviews: 29,
+                image: "https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+                description: "Crisp romaine lettuce with Caesar dressing and croutons"
+            },
+            {
+                name: "Mango Sticky Rice",
+                category: "Dessert",
+                concern: "Sweet",
+                price: 8.99,
+                rating: 4.8,
+                reviews: 33,
+                image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80",
+                description: "Sweet sticky rice with fresh mango and coconut milk"
+            },
+            {
+                name: "Green Detox Smoothie",
+                category: "Drinks",
+                concern: "Vegan",
+                price: 7.99,
+                rating: 4.2,
+                reviews: 26,
+                image: "https://images.unsplash.com/photo-1638176066669-14a88544c5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+                description: "Nutritious blend of spinach, kale, apple, and lemon"
+            },
+            {
+                name: "Garlic Bread",
+                category: "Appetizer",
+                concern: "Vegetarian",
+                price: 6.99,
+                rating: 4.5,
+                reviews: 48,
+                image: "https://images.unsplash.com/photo-1573140247632-f8fd74997d5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                description: "Toasted bread with garlic butter and herbs"
+            },
+            {
+                name: "Vegetable Pizza",
+                category: "Main Course",
+                concern: "Vegetarian",
+                price: 18.99,
+                rating: 4.6,
+                reviews: 55,
+                image: "https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+                description: "Thin crust pizza with assorted fresh vegetables"
+            },
+            {
+                name: "Tiramisu",
+                category: "Dessert",
+                concern: "Sweet",
+                price: 9.99,
+                rating: 4.9,
+                reviews: 67,
+                image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+                description: "Classic Italian dessert with coffee-soaked ladyfingers"
+            },
+            {
+                name: "Falafel Plate",
+                category: "Main Course",
+                concern: "Vegan",
+                price: 14.99,
+                rating: 4.4,
+                reviews: 31,
+                image: "https://images.unsplash.com/photo-1598214887286-5f912b5c5714?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1325&q=80",
+                description: "Crispy falafel with hummus, pita, and fresh salad"
+            },
+            {
+                name: "Fruit Parfait",
+                category: "Breakfast",
+                concern: "Vegan",
+                price: 8.99,
+                rating: 4.3,
+                reviews: 22,
+                image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+                description: "Layers of yogurt, granola, and fresh seasonal fruits"
+            }
+        ];
+
+        function renderProducts(list) {
+            productGrid.innerHTML = "";
+            productCountEl.textContent = list.length;
+
+            if (list.length === 0) {
+                productGrid.innerHTML = `
+                    <div class="col-span-3 text-center py-12">
+                        <i class="fas fa-search text-5xl text-gray-300 mb-4"></i>
+                        <p class='text-gray-500 text-xl'>No products found.</p>
+                        <p class="text-gray-400 mt-2">Try adjusting your filters</p>
+                    </div>
+                `;
+                return;
+            }
+
+            list.forEach((p, i) => {
+                // Generate star ratings
+                let stars = "";
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= Math.floor(p.rating)) {
+                        stars += `<i class="fas fa-star"></i>`;
+                    } else if (i - p.rating < 1) {
+                        stars += `<i class="fas fa-star-half-alt"></i>`;
+                    } else {
+                        stars += `<i class="far fa-star"></i>`;
+                    }
+                }
+
+                // Add sale badge for some products
+                const saleBadge = p.price < 10 ? `<div class="sale-badge">SALE</div>` : '';
+
+                const div = document.createElement("div");
+                div.className = "product-card bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100";
+                div.innerHTML = `
+                    <div class="relative">
+                        <img src="${p.image}" alt="${p.name}" class="w-full h-48 object-cover">
+                        ${saleBadge}
+                        <div class="absolute top-4 right-4 price-tag">$${p.price}</div>
+                        <div class="absolute top-4 left-4 bg-red-600 text-white text-sm font-semibold py-1 px-2 rounded">
+                            <i class="fas fa-star mr-1"></i>${p.rating}
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">${p.name}</h3>
+                        <p class="text-gray-600 text-sm mb-2">${p.description}</p>
+                        <div class="flex items-center mb-3">
+                            <div class="rating-stars mr-2">${stars}</div>
+                            <span class="text-gray-500 text-sm">(${p.reviews})</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-500 text-sm">${p.category} • ${p.concern}</span>
+                            <button onclick="addToCart(${i})" class="add-to-cart bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition flex items-center">
+                                <i class="fas fa-plus mr-2"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                `;
+                productGrid.appendChild(div);
+            });
+        }
+
+        function addToCart(index) {
+            const product = { ...products[index], quantity: 1 };
+            const existing = cart.find(item => item.name === product.name);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push(product);
+            }
+            localStorage.setItem("cart", JSON.stringify(cart));
+            cartCountEl.textContent = cart.length;
+
+            // Show success message
+            const button = event.target;
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-check mr-2"></i>Added!';
+            button.style.backgroundColor = '#10b981';
+
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.style.backgroundColor = '';
+            }, 2000);
+        }
+
+        function applyFilters() {
+            let filtered = [...products];
+
+            // Search
+            const searchValue = document.getElementById("searchInput").value.toLowerCase();
+            if (searchValue) {
+                filtered = filtered.filter(p =>
+                    p.name.toLowerCase().includes(searchValue) ||
+                    p.description.toLowerCase().includes(searchValue)
+                );
+            }
+
+            // Category
+            const selectedCats = [...document.querySelectorAll(".category:checked")].map(cb => cb.value);
+            if (selectedCats.length > 0) {
+                filtered = filtered.filter(p => selectedCats.includes(p.category));
+            }
+
+            // Concern
+            const selectedConcerns = [...document.querySelectorAll(".concern:checked")].map(cb => cb.value);
+            if (selectedConcerns.length > 0) {
+                filtered = filtered.filter(p => selectedConcerns.includes(p.concern));
+            }
+
+            // Price
+            const maxPrice = document.getElementById("priceRange").value;
+            filtered = filtered.filter(p => p.price <= maxPrice);
+
+            // Rating
+            const rating = document.querySelector(".rating:checked")?.value;
+            if (rating) {
+                filtered = filtered.filter(p => p.rating >= rating);
+            }
+
+            // Sort
+            const sortValue = document.getElementById("sortSelect").value;
+            if (sortValue === "low-high") {
+                filtered.sort((a, b) => a.price - b.price);
+            } else if (sortValue === "high-low") {
+                filtered.sort((a, b) => b.price - a.price);
+            } else if (sortValue === "rating") {
+                filtered.sort((a, b) => b.rating - a.rating);
+            } else if (sortValue === "name") {
+                filtered.sort((a, b) => a.name.localeCompare(b.name));
+            }
+
+            renderProducts(filtered);
+        }
+
+        // Clear filters
+        document.getElementById("clearFilters").addEventListener("click", function () {
+            // Clear all checkboxes
+            document.querySelectorAll(".category, .concern").forEach(cb => cb.checked = false);
+
+            // Clear rating radios
+            document.querySelectorAll(".rating").forEach(rb => rb.checked = false);
+
+            // Reset price range
+            document.getElementById("priceRange").value = 50;
+            document.getElementById("priceValue").textContent = 50;
+
+            // Reset search
+            document.getElementById("searchInput").value = "";
+
+            // Reset sort
+            document.getElementById("sortSelect").value = "default";
+
+            // Apply filters
+            applyFilters();
+        });
+
+        // Quick filters
+        const quickFilters = document.querySelectorAll(".quick-filter");
+        quickFilters.forEach(button => {
+            button.addEventListener("click", function () {
+                // Remove active class from all buttons
+                quickFilters.forEach(btn => btn.classList.remove("active", "bg-red-600", "text-white"));
+                quickFilters.forEach(btn => btn.classList.add("bg-gray-100", "text-gray-800"));
+
+                // Add active class to clicked button
+                this.classList.remove("bg-gray-100", "text-gray-800");
+                this.classList.add("active", "bg-red-600", "text-white");
+
+                // In a real implementation, you would filter products here
+                // For this example, we'll just log the filter
+                console.log('Quick filter:', this.textContent);
+            });
+        });
+
+        // Event listeners
+        document.querySelectorAll(".category, .concern, .rating").forEach(cb => cb.addEventListener("change", applyFilters));
+        document.getElementById("priceRange").addEventListener("input", e => {
+            document.getElementById("priceValue").textContent = e.target.value;
+            applyFilters();
+        });
+        document.getElementById("sortSelect").addEventListener("change", applyFilters);
+        document.getElementById("searchInput").addEventListener("input", applyFilters);
+
+        // Initial render
+        renderProducts(products);
+    </script>                 
