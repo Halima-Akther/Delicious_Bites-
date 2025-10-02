@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Delicious Bites</title>
+    <link rel="icon" href="img/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .signup-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .signup-card {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+        }
+
+        .signup-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .form-input {
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+        }
+
+        .signup-btn {
+            transition: all 0.3s ease;
+        }
+
+        .signup-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(239, 68, 68, 0.4);
+        }
+
+        .social-btn {
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu {
+            transition: max-height 0.5s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+
+        .password-toggle {
+            transition: all 0.2s ease;
+        }
+
+        .password-toggle:hover {
+            color: #ef4444;
+        }
+
+        .toast {
+            transition: all 0.3s ease;
+        }
+
+        .password-strength {
+            height: 4px;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center py-4 px-6">
+            <div class="logo text-2xl font-bold text-red-600 flex items-center">
+                <i class="fas fa-utensils mr-2"></i>
+                <a href="index.html">Delicious Bites</a>
+            </div>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">Home</a>
+                <a href="menu.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">Menu</a>
+                <a href="product.html"
+                    class="text-gray-800 hover:text-red-600 font-medium transition-colors">Products</a>
+                <a href="about.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">About Us</a>
+                <a href="blog.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">Blog</a>
+                <a href="contact.html"
+                    class="text-gray-800 hover:text-red-600 font-medium transition-colors">Contact</a>
+                <a href="reviews.html"
+                    class="text-gray-800 hover:text-red-600 font-medium transition-colors">Reviews</a>
+                <a href="cart.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">Cart</a>
+            </nav>
+
+            <!-- Icons and Mobile Menu Button -->
+            <div class="flex items-center space-x-4">
+                <a href="cart.html" class="relative text-gray-800 hover:text-red-600 transition-colors">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span
+                        class="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">0</span>
+                </a>
+                <a href="login.html" class="text-gray-800 hover:text-red-600 transition-colors">
+                    <i class="fas fa-user text-xl"></i>
+                </a>
+                <button id="mobile-menu-button" class="md:hidden text-gray-800">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-white px-6 py-4 border-t">
+            <div class="flex flex-col space-y-4">
+                <a href="index.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">Home</a>
+                <a href="menu.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">Menu</a>
+                <a href="product.html"
+                    class="text-gray-800 hover:text-red-600 font-medium transition-colors">Products</a>
+                <a href="about.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">About Us</a>
+                <a href="blog.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">Blog</a>
+                <a href="contact.html"
+                    class="text-gray-800 hover:text-red-600 font-medium transition-colors">Contact</a>
+                <a href="reviews.html"
+                    class="text-gray-800 hover:text-red-600 font-medium transition-colors">Reviews</a>
+                <a href="cart.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">Cart</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="signup-bg py-16 min-h-screen flex items-center justify-center">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-center gap-12">
+                <!-- Left Side - Welcome Text -->
+                <div class="md:w-1/2 text-white text-center md:text-left">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Join Our Foodie Family!</h1>
+                    <p class="text-xl mb-6 max-w-lg">Create an account to unlock exclusive recipes, personalized
+                        recommendations, and special offers.</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-400 mr-3 text-xl"></i>
+                            <span>Access exclusive recipes and cooking tips</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-400 mr-3 text-xl"></i>
+                            <span>Save your favorite dishes and create collections</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-400 mr-3 text-xl"></i>
+                            <span>Get personalized meal recommendations</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-400 mr-3 text-xl"></i>
+                            <span>Receive special offers and early access to new products</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side - Signup Form -->
+                <div class="md:w-1/3">
+                    <div class="signup-card bg-white rounded-2xl p-8">
+                        <!-- Logo & Heading -->
+                        <div class="text-center mb-8">
+                            <div
+                                class="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-utensils text-red-600 text-3xl"></i>
+                            </div>
+                            <h2 class="text-2xl font-bold text-gray-800">Create Account</h2>
+                            <p class="text-sm text-gray-500 mt-1">Join Delicious Bites to start your food journey</p>
+                        </div>
+
+                        <!-- Signup Form -->
+                        <form id="signup-form" class="space-y-5">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                                <div class="relative">
+                                    <input type="text" id="name" placeholder="Your full name" required
+                                        class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                                    <i class="fas fa-user absolute right-3 top-3.5 text-gray-400"></i>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email
+                                    Address</label>
+                                <div class="relative">
+                                    <input type="email" id="email" placeholder="your@email.com" required
+                                        class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500">
+                                    <i class="fas fa-envelope absolute right-3 top-3.5 text-gray-400"></i>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="password"
+                                    class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                                <div class="relative">
+                                    <input type="password" id="password" placeholder="Create a strong password" required
+                                        class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 pr-10">
+                                    <button type="button" id="toggle-password"
+                                        class="password-toggle absolute right-3 top-3.5 text-gray-400">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div id="password-strength" class="mt-2">
+                                    <div class="flex justify-between text-xs text-gray-500 mb-1">
+                                        <span>Password Strength</span>
+                                        <span id="strength-text">Weak</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-1.5">
+                                        <div id="strength-bar" class="password-strength bg-red-500 h-1.5 rounded-full"
+                                            style="width: 20%"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="confirm-password"
+                                    class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+                                <div class="relative">
+                                    <input type="password" id="confirm-password" placeholder="Confirm your password"
+                                        required
+                                        class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 pr-10">
+                                    <button type="button" id="toggle-confirm-password"
+                                        class="password-toggle absolute right-3 top-3.5 text-gray-400">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div id="password-match" class="mt-1 text-xs text-red-500 hidden">
+                                    <i class="fas fa-exclamation-circle mr-1"></i>
+                                    Passwords do not match
+                                </div>
+                            </div>
+
+                            <div class="flex items-center">
+                                <input type="checkbox" id="terms" required
+                                    class="w-4 h-4 text-red-600 border-gray-300 rounded focus:ring-red-500">
+                                <label for="terms" class="ml-2 text-sm text-gray-600">
+                                    I agree to the
+                                    <a href="terms.html" class="text-red-600 hover:text-red-700">Terms of Service</a>
+                                    and
+                                    <a href="privacy.html" class="text-red-600 hover:text-red-700">Privacy Policy</a>
+                                </label>
+                            </div>
+
+                            <div class="flex items-center">
+                                <input type="checkbox" id="newsletter"
+                                    class="w-4 h-4 text-red-600 border-gray-300 rounded focus:ring-red-500" checked>
+                                <label for="newsletter" class="ml-2 text-sm text-gray-600">
+                                    Send me recipes, cooking tips, and special offers
+                                </label>
+                            </div>
+
+                            <button type="submit" id="signup-button"
+                                class="signup-btn w-full bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-3 rounded-lg transition flex items-center justify-center">
+                                <i class="fas fa-user-plus mr-2"></i>
+                                Create Account
+                            </button>
+                        </form>
+
+                        <!-- Divider -->
+                        <div class="my-6 flex items-center">
+                            <div class="flex-1 border-t border-gray-300"></div>
+                            <span class="px-4 text-sm text-gray-500">OR</span>
+                            <div class="flex-1 border-t border-gray-300"></div>
+                        </div>
+
+                        <!-- Social Signup -->
+                        <div class="space-y-3">
+                            <button id="google-signup"
+                                class="social-btn w-full bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 px-4 py-3 rounded-lg flex items-center justify-center gap-3 transition">
+                                <i class="fab fa-google text-red-500"></i>
+                                Sign up with Google
+                            </button>
+
+                            <button id="facebook-signup"
+                                class="social-btn w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg flex items-center justify-center gap-3 transition">
+                                <i class="fab fa-facebook-f"></i>
+                                Sign up with Facebook
+                            </button>
+                        </div>
+
+                        <!-- Login link -->
+                        <p class="mt-6 text-center text-sm text-gray-500">
+                            Already have an account?
+                            <a href="login.html" class="text-red-600 hover:text-red-700 font-semibold">Sign In</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="toast"
+        class="fixed bottom-5 right-5 bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg opacity-0 transition-opacity z-50 flex items-center">
+        <i class="fas fa-check-circle mr-2"></i>
+        <span id="toast-message">Account created successfully!</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-red-600 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-utensils mr-2"></i>
+                        Delicious Bites
+                    </h3>
+                    <p class="text-gray-100 mb-4">Fresh and tasty meals made with love and high-quality ingredients.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-100 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-100 hover:text-white transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-100 hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-100 hover:text-white transition-colors">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-100 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="menu.html" class="text-gray-100 hover:text-white transition-colors">Menu</a></li>
+                        <li><a href="blog.html" class="text-gray-100 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="about.html" class="text-gray-100 hover:text-white transition-colors">About Us</a>
+                        </li>
+                        <li><a href="reviews.html" class="text-gray-100 hover:text-white transition-colors">Reviews</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start space-x-2">
+                            <i class="fas fa-map-marker-alt mt-1 text-white"></i>
+                            <span class="text-gray-100">123 Food Street, Gourmet City</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-phone text-white"></i>
+                            <span class="text-gray-100">+1 (234) 567-8900</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-envelope text-white"></i>
+                            <span class="text-gray-100">info@deliciousbites.com</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-100 mb-4">Subscribe to get recipes and updates from Delicious Bites.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email"
+                            class="px-4 py-2 w-full rounded-l-md focus:outline-none text-gray-800">
+                        <button type="submit"
+                            class="bg-red-500 hover:bg-red-700 px-4 py-2 rounded-r-md transition-colors">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-red-700 mt-10 pt-6 text-center text-gray-200">
+                <p>© 2025 Delicious Bites. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase Scripts -->
+    <script type="module">
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('open');
+        });
+
+        // Import Firebase modules
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+
+        // Firebase config
+        const firebaseConfig = {
+            apiKey: "AIzaSyBxsFpDM4jRmuiSylFRnH-Spnd9gAUZ9zE",
+            authDomain: "organic-6edcf.firebaseapp.com",
+            projectId: "organic-6edcf",
+            storageBucket: "organic-6edcf.appspot.com",
+            messagingSenderId: "114429263573",
+            appId: "1:114429263573:web:0f3756bbe3ec4a81d82c5c"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Toast notification function
+        const toast = document.getElementById('toast');
+        const toastMessage = document.getElementById('toast-message');
+
+        function showToast(msg, isError = false) {
+            toastMessage.textContent = msg;
+            if (isError) {
+                toast.classList.remove('bg-green-500');
+                toast.classList.add('bg-red-500');
+            } else {
+                toast.classList.remove('bg-red-500');
+                toast.classList.add('bg-green-500');
+            }
+            toast.classList.add('opacity-100');
+            setTimeout(() => toast.classList.remove('opacity-100'), 3000);
+        }
+
+        // Password visibility toggle
+        const togglePassword = document.getElementById('toggle-password');
+        const toggleConfirmPassword = document.getElementById('toggle-confirm-password');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirm-password');
+
+        togglePassword.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+        });
+
+        toggleConfirmPassword.addEventListener('click', function () {
+            const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            confirmPasswordInput.setAttribute('type', type);
+            this.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+        });
+
+        // Password strength checker
+        const strengthBar = document.getElementById('strength-bar');
+        const strengthText = document.getElementById('strength-text');
+
+        passwordInput.addEventListener('input', function () {
+            const password = this.value;
+            let strength = 0;
+            let color = 'bg-red-500';
+            let text = 'Weak';
+
+            // Check password length
+            if (password.length >= 8) strength += 25;
+
+            // Check for lowercase letters
+            if (/[a-z]/.test(password)) strength += 25;
+
+            // Check for uppercase letters
+            if (/[A-Z]/.test(password)) strength += 25;
+
+            // Check for numbers and special characters
+            if (/[0-9]/.test(password) || /[^A-Za-z0-9]/.test(password)) strength += 25;
+
+            // Update strength bar and text
+            strengthBar.style.width = `${strength}%`;
+
+            if (strength >= 75) {
+                color = 'bg-green-500';
+                text = 'Strong';
+            } else if (strength >= 50) {
+                color = 'bg-yellow-500';
+                text = 'Medium';
+            } else {
+                color = 'bg-red-500';
+                text = 'Weak';
+            }
+
+            strengthBar.className = `password-strength ${color} h-1.5 rounded-full`;
+            strengthText.textContent = text;
+
+            // Check password match
+            checkPasswordMatch();
+        });
+
+        // Password match checker
+        confirmPasswordInput.addEventListener('input', checkPasswordMatch);
+
+        function checkPasswordMatch() {
+            const password = passwordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
+            const matchIndicator = document.getElementById('password-match');
+
+            if (confirmPassword.length > 0 && password !== confirmPassword) {
+                matchIndicator.classList.remove('hidden');
+            } else {
+                matchIndicator.classList.add('hidden');
+            }
+        }
+
+        // Email/Password signup
+        const form = document.getElementById('signup-form');
+        const signupButton = document.getElementById('signup-button');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Check if passwords match
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            if (password !== confirmPassword) {
+                showToast("Passwords do not match. Please check and try again.", true);
+                return;
+            }
+
+            // Check if terms are accepted
+            if (!document.getElementById('terms').checked) {
+                showToast("Please accept the Terms of Service and Privacy Policy.", true);
+                return;
+            }
+
+            // Show loading state
+            signupButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Creating Account...';
+            signupButton.disabled = true;
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            createUserWithEmailAndPassword(auth, email, password)
+                .then(userCredential => {
+                    // In a real app, you might save the user's name to the database here
+                    showToast("Account created successfully! Welcome to Delicious Bites.");
+                    setTimeout(() => {
+                        window.location.href = "index.html"; // redirect to home page
+                    }, 1500);
+                })
+                .catch(error => {
+                    let errorMessage = "Signup failed. Please try again.";
+
+                    switch (error.code) {
+                        case 'auth/email-already-in-use':
+                            errorMessage = "This email is already registered. Please login instead.";
+                            break;
+                        case 'auth/invalid-email':
+                            errorMessage = "Invalid email address format.";
+                            break;
+                        case 'auth/operation-not-allowed':
+                            errorMessage = "Email/password accounts are not enabled. Please contact support.";
+                            break;
+                        case 'auth/weak-password':
+                            errorMessage = "Password is too weak. Please choose a stronger password.";
+                            break;
+                    }
+
+                    showToast(errorMessage, true);
+
+                    // Reset button
+                    signupButton.innerHTML = '<i class="fas fa-user-plus mr-2"></i> Create Account';
+                    signupButton.disabled = false;
+                });
+        });
+
+        // Google signup
+        const googleSignupBtn = document.getElementById('google-signup');
+        const googleProvider = new GoogleAuthProvider();
+
+        googleSignupBtn.addEventListener('click', () => {
+            signInWithPopup(auth, googleProvider)
+                .then(result => {
+                    showToast("Google signup successful! Welcome to Delicious Bites.");
+                    setTimeout(() => {
+                        window.location.href = "index.html";
+                    }, 1500);
+                })
+                .catch(error => {
+                    showToast("Google signup failed. Please try again.", true);
+                });
+        });
+
+        // Facebook signup (placeholder - would need proper setup)
+        const facebookSignupBtn = document.getElementById('facebook-signup');
+        facebookSignupBtn.addEventListener('click', () => {
+            showToast("Facebook signup is not yet implemented.", true);
+        });
+    </script>
+
+</body>
+
+</html>
