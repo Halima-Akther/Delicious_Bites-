@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Delicious Bites</title>
+    <link rel="icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/common.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="flex flex-col min-h-screen bg-gray-50">
+
+<!-- Navigation -->
+<nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto flex items-center justify-between px-6 py-4">
+        <!-- Logo -->
+        <div class="text-2xl font-bold text-red-600">
+            <a href="index.html">Delicious Bites</a>
+        </div>
+
+        <!-- Menu Links -->
+        <div class="hidden md:flex space-x-6 font-medium text-gray-800">
+            <a href="index.html" class="hover:text-red-600 transition-colors">Home</a>
+            <a href="menu.html" class="hover:text-red-600 transition-colors">Menu</a>
+            <a href="about.html" class="text-red-600 font-semibold transition-colors">About Us</a>
+            <a href="blog.html" class="hover:text-red-600 transition-colors">Blog</a>
+            <a href="contact.html" class="hover:text-red-600 transition-colors">Contact</a>
+            <a href="reviews.html" class="hover:text-red-600 transition-colors">Reviews</a>
+            <a href="product.html" class="hover:text-red-600 transition-colors">Product</a>
+        </div>
+
+        <!-- Icons -->
+        <div class="flex items-center space-x-4">
+            <a href="card.html" class="relative text-gray-800 hover:text-red-600 transition-colors">
+                <i class="fas fa-shopping-cart text-xl"></i>
+                <span
+                    class="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">0</span>
+            </a>
+            <a href="login.html" class="text-gray-800 hover:text-red-600 transition-colors">
+                <i class="fas fa-user text-xl"></i>
+            </a>
+        </div>
+    </div>
+</nav>
+
+
+    <!-- Hero Section -->
+    <section class="relative bg-red-600 text-white py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold">Contact Us</h1>
+            <p class="mt-4 text-lg md:text-xl">We’d love to hear from you! Send us a message or find us here.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4 grid lg:grid-cols-2 gap-16">
+
+            <!-- Contact Form -->
+            <div class="bg-white rounded-xl shadow-md p-8">
+                <h2 class="text-3xl font-bold mb-6">Send a Message</h2>
+                <form action="#" class="space-y-4">
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Name</label>
+                        <input type="text" placeholder="Your Name"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Email</label>
+                        <input type="email" placeholder="Your Email"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Subject</label>
+                        <input type="text" placeholder="Subject"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Message</label>
+                        <textarea rows="5" placeholder="Your Message"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"></textarea>
+                    </div>
+                    <button type="submit"
+                        class="bg-red-500 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-md transition-colors">Send
+                        Message</button>
+                </form>
+            </div>
+
+            <!-- Contact Info & Map -->
+            <div class="space-y-8">
+                <div>
+                    <h2 class="text-3xl font-bold mb-4">Contact Information</h2>
+                    <ul class="space-y-4 text-gray-700">
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-map-marker-alt text-red-500"></i>
+                            <span>123 Food Street, Gourmet City</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-red-500"></i>
+                            <span>+1 (234) 567-8900</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-red-500"></i>
+                            <span>info@deliciousbites.com</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-3xl font-bold mb-4">Find Us</h2>
+                    <div class="w-full h-64 rounded-xl overflow-hidden shadow-md">
+                        <iframe class="w-full h-full"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.908123456789!2d90.400000!3d23.750000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b1a1b1b1b1%3A0x123456789abcdef!2sGourmet%20City!5e0!3m2!1sen!2sbd!4v1690000000000!5m2!1sen!2sbd"
+                            style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-red-600 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Delicious Bites</h3>
+                    <p class="text-gray-100 mb-4">Fresh and tasty meals made with love and high-quality ingredients.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-100 hover:text-white transition-colors"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-100 hover:text-white transition-colors"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-100 hover:text-white transition-colors"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-100 hover:text-white transition-colors"><i
+                                class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-100 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="menu.html" class="text-gray-100 hover:text-white transition-colors">Menu</a></li>
+                        <li><a href="blog.html" class="text-gray-100 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="about.html" class="text-gray-100 hover:text-white transition-colors">About Us</a>
+                        </li>
+                        <li><a href="contact.html" class="text-gray-100 hover:text-white transition-colors">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start space-x-2">
+                            <i class="fas fa-map-marker-alt mt-1 text-white"></i>
+                            <span class="text-gray-100">123 Food Street, Gourmet City</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-phone text-white"></i>
+                            <span class="text-gray-100">+1 (234) 567-8900</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-envelope text-white"></i>
+                            <span class="text-gray-100">info@deliciousbites.com</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-100 mb-4">Subscribe to get recipes and updates from Delicious Bites.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email"
+                            class="px-4 py-2 w-full rounded-l-md focus:outline-none text-gray-800">
+                        <button type="submit"
+                            class="bg-red-500 hover:bg-red-700 px-4 py-2 rounded-r-md transition-colors">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-red-700 mt-10 pt-6 text-center text-gray-200">
+                <p>© 2025 Delicious Bites. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
