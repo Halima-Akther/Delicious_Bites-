@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews - Delicious Bites</title>
+    <link rel="icon" href="img/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .reviews-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .review-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .rating-stars {
+            color: #fbbf24;
+        }
+
+        .rating-bar {
+            transition: width 0.5s ease;
+        }
+
+        .mobile-menu {
+            transition: max-height 0.5s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+
+        .review-image {
+            transition: transform 0.3s ease;
+        }
+
+        .review-image:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen bg-gray-50">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex items-center justify-between px-6 py-4">
+            <!-- Logo -->
+            <div class="text-2xl font-bold text-red-600 flex items-center">
+                <i class="fas fa-utensils mr-2"></i>
+                <a href="index.html">Delicious Bites</a>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">Home</a>
+                <a href="menu.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">Menu</a>
+                <a href="product.html"
+                    class="text-gray-800 hover:text-red-600 font-medium transition-colors">Products</a>
+                <a href="about.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">About Us</a>
+                <a href="blog.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">Blog</a>
+                <a href="contact.html"
+                    class="text-gray-800 hover:text-red-600 font-medium transition-colors">Contact</a>
+                <a href="reviews.html"
+                    class="text-red-600 font-medium transition-colors border-b-2 border-red-600">Reviews</a>
+            </div>
+
+            <!-- Icons and Mobile Menu Button -->
+            <div class="flex items-center space-x-4">
+                <a href="cart.html" class="relative text-gray-800 hover:text-red-600 transition-colors">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span
+                        class="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">3</span>
+                </a>
+                <a href="login.html" class="text-gray-800 hover:text-red-600 transition-colors">
+                    <i class="fas fa-user text-xl"></i>
+                </a>
+                <button id="mobile-menu-button" class="md:hidden text-gray-800">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-white px-6 py-4 border-t">
+            <div class="flex flex-col space-y-4">
+                <a href="index.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">Home</a>
+                <a href="menu.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">Menu</a>
+                <a href="product.html"
+                    class="text-gray-800 hover:text-red-600 font-medium transition-colors">Products</a>
+                <a href="about.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">About Us</a>
+                <a href="blog.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">Blog</a>
+                <a href="contact.html"
+                    class="text-gray-800 hover:text-red-600 font-medium transition-colors">Contact</a>
+                <a href="reviews.html" class="text-red-600 font-medium transition-colors">Reviews</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="reviews-hero text-white py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4">Customer Reviews</h1>
+            <p class="mt-4 text-lg md:text-xl max-w-2xl mx-auto">See what our happy customers are saying about their
+                experiences at Delicious Bites!</p>
+            <div class="mt-8 flex justify-center">
+                <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-full px-6 py-3 inline-flex items-center">
+                    <div class="rating-stars text-2xl mr-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <span class="text-xl font-bold">4.7/5 from 284 reviews</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overall Rating Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 text-center mb-10 md:mb-0">
+                    <div class="bg-red-50 rounded-2xl p-8 inline-block">
+                        <div class="text-6xl font-bold text-red-600 mb-2">4.7</div>
+                        <div class="rating-stars text-2xl mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <div class="text-gray-600">Based on 284 reviews</div>
+                    </div>
+                </div>
+
+                <div class="md:w-2/3 md:pl-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Customer Satisfaction</h2>
+
+                    <!-- Rating Bars -->
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <span class="w-16 text-gray-600">5 stars</span>
+                            <div class="flex-1 bg-gray-200 rounded-full h-3 mx-4">
+                                <div class="bg-yellow-500 h-3 rounded-full rating-bar" style="width: 75%"></div>
+                            </div>
+                            <span class="w-12 text-gray-600">75%</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-16 text-gray-600">4 stars</span>
+                            <div class="flex-1 bg-gray-200 rounded-full h-3 mx-4">
+                                <div class="bg-yellow-500 h-3 rounded-full rating-bar" style="width: 18%"></div>
+                            </div>
+                            <span class="w-12 text-gray-600">18%</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-16 text-gray-600">3 stars</span>
+                            <div class="flex-1 bg-gray-200 rounded-full h-3 mx-4">
+                                <div class="bg-yellow-500 h-3 rounded-full rating-bar" style="width: 5%"></div>
+                            </div>
+                            <span class="w-12 text-gray-600">5%</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-16 text-gray-600">2 stars</span>
+                            <div class="flex-1 bg-gray-200 rounded-full h-3 mx-4">
+                                <div class="bg-yellow-500 h-3 rounded-full rating-bar" style="width: 1%"></div>
+                            </div>
+                            <span class="w-12 text-gray-600">1%</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-16 text-gray-600">1 star</span>
+                            <div class="flex-1 bg-gray-200 rounded-full h-3 mx-4">
+                                <div class="bg-yellow-500 h-3 rounded-full rating-bar" style="width: 1%"></div>
+                            </div>
+                            <span class="w-12 text-gray-600">1%</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <a href="#write-review"
+                            class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-full inline-flex items-center transition-colors">
+                            <i class="fas fa-pen mr-2"></i>
+                            Write a Review
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-12 text-center">What Our Customers Say</h2>
+
+            <!-- Review Filters -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button
+                    class="filter-btn bg-white text-gray-800 py-2 px-4 rounded-full border border-red-200 hover:bg-red-100 active">All
+                    Reviews</button>
+                <button
+                    class="filter-btn bg-white text-gray-800 py-2 px-4 rounded-full border border-red-200 hover:bg-red-100">5
+                    Stars</button>
+                <button
+                    class="filter-btn bg-white text-gray-800 py-2 px-4 rounded-full border border-red-200 hover:bg-red-100">4
+                    Stars</button>
+                <button
+                    class="filter-btn bg-white text-gray-800 py-2 px-4 rounded-full border border-red-200 hover:bg-red-100">With
+                    Photos</button>
+            </div>
+
+            <div id="reviews-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Review cards will be added here by JS -->
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button id="load-more"
+                    class="bg-white text-red-600 border border-red-600 hover:bg-red-50 font-semibold py-3 px-8 rounded-full transition-colors">
+                    Load More Reviews
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Write Review Section -->
+    <section id="write-review" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Share Your Experience</h2>
+                <p class="text-gray-600 mb-8 text-center">We value your feedback. Tell us about your experience at
+                    Delicious Bites.</p>
+
+                <form class="bg-gray-50 rounded-2xl p-8">
+                    <div class="mb-6">
+                        <label class="block text-gray-700 mb-2" for="name">Your Name</label>
+                        <input type="text" id="name"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500">
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-gray-700 mb-2" for="rating">Your Rating</label>
+                        <div class="flex space-x-2" id="rating-stars">
+                            <i class="far fa-star text-2xl text-gray-400 cursor-pointer hover:text-yellow-500"
+                                data-rating="1"></i>
+                            <i class="far fa-star text-2xl text-gray-400 cursor-pointer hover:text-yellow-500"
+                                data-rating="2"></i>
+                            <i class="far fa-star text-2xl text-gray-400 cursor-pointer hover:text-yellow-500"
+                                data-rating="3"></i>
+                            <i class="far fa-star text-2xl text-gray-400 cursor-pointer hover:text-yellow-500"
+                                data-rating="4"></i>
+                            <i class="far fa-star text-2xl text-gray-400 cursor-pointer hover:text-yellow-500"
+                                data-rating="5"></i>
+                        </div>
+                        <input type="hidden" id="rating-value" value="0">
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-gray-700 mb-2" for="review">Your Review</label>
+                        <textarea id="review" rows="5"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
+                            placeholder="Tell us about your experience..."></textarea>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-gray-700 mb-2">Add Photos (Optional)</label>
+                        <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                            <i class="fas fa-cloud-upload-alt text-3xl text-gray-400 mb-2"></i>
+                            <p class="text-gray-500">Drag & drop images here or click to browse</p>
+                            <input type="file" id="photos" class="hidden" multiple>
+                        </div>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors">
+                        Submit Review
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-red-600 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-utensils mr-2"></i>
+                        Delicious Bites
+                    </h3>
+                    <p class="text-gray-100 mb-4">Fresh and tasty meals made with love and high-quality ingredients.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-100 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-100 hover:text-white transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-100 hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-100 hover:text-white transition-colors">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-100 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="menu.html" class="text-gray-100 hover:text-white transition-colors">Menu</a></li>
+                        <li><a href="blog.html" class="text-gray-100 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="about.html" class="text-gray-100 hover:text-white transition-colors">About Us</a>
+                        </li>
+                        <li><a href="reviews.html" class="text-gray-100 hover:text-white transition-colors">Reviews</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start space-x-2">
+                            <i class="fas fa-map-marker-alt mt-1 text-white"></i>
+                            <span class="text-gray-100">123 Food Street, Gourmet City</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-phone text-white"></i>
+                            <span class="text-gray-100">+1 (234) 567-8900</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-envelope text-white"></i>
+                            <span class="text-gray-100">info@deliciousbites.com</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-100 mb-4">Subscribe to get recipes and updates from Delicious Bites.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email"
+                            class="px-4 py-2 w-full rounded-l-md focus:outline-none text-gray-800">
+                        <button type="submit"
+                            class="bg-red-500 hover:bg-red-700 px-4 py-2 rounded-r-md transition-colors">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-red-700 mt-10 pt-6 text-center text-gray-200">
+                <p>© 2025 Delicious Bites. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('open');
+        });
+
+        // Review data
+        const reviews = [
+            {
+                name: "Sarah Johnson",
+                review: "The pasta and desserts are absolutely delicious! Highly recommend the seafood platter too. The service was exceptional and the atmosphere was perfect for our anniversary dinner.",
+                rating: 4.5,
+                gender: "women",
+                date: "2 weeks ago",
+                verified: true,
+                photo: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1380&q=80"
+            },
+            {
+                name: "Michael Lee",
+                review: "Amazing service and fresh ingredients. Every dish tastes like it was made with love. The grilled salmon was cooked to perfection!",
+                rating: 5,
+                gender: "men",
+                date: "1 month ago",
+                verified: true,
+                photo: null
+            },
+            {
+                name: "Emily Davis",
+                review: "I love the vegan options here. Fresh and flavorful meals that make eating healthy enjoyable! The avocado burger is a must-try.",
+                rating: 3.5,
+                gender: "women",
+                date: "3 days ago",
+                verified: false,
+                photo: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1380&q=80"
+            },
+            {
+                name: "David Miller",
+                review: "Perfect ambiance and super tasty food. Will definitely come back again! The truffle pasta was incredible.",
+                rating: 4,
+                gender: "men",
+                date: "1 week ago",
+                verified: true,
+                photo: null
+            },
+            {
+                name: "Jessica Wilson",
+                review: "The best restaurant in town! Everything from the appetizers to the desserts was perfect. The staff was friendly and attentive.",
+                rating: 5,
+                gender: "women",
+                date: "2 months ago",
+                verified: true,
+                photo: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80"
+            },
+            {
+                name: "Robert Taylor",
+                review: "Great food and excellent service. The portions are generous and everything was cooked perfectly. The chocolate lava cake is to die for!",
+                rating: 4.5,
+                gender: "men",
+                date: "3 weeks ago",
+                verified: false,
+                photo: null
+            }
+        ];
+
+        const reviewsContainer = document.getElementById("reviews-container");
+        const loadMoreButton = document.getElementById("load-more");
+        let displayedReviews = 3;
+
+        // Function to generate star ratings
+        function generateStars(rating) {
+            let stars = "";
+            for (let i = 1; i <= 5; i++) {
+                if (i <= Math.floor(rating)) {
+                    stars += `<i class="fas fa-star"></i>`;
+                } else if (i - rating < 1) {
+                    stars += `<i class="fas fa-star-half-alt"></i>`;
+                } else {
+                    stars += `<i class="far fa-star"></i>`;
+                }
+            }
+            return stars;
+        }
+
+        // Function to display reviews
+        function displayReviews(count) {
+            reviewsContainer.innerHTML = "";
+            for (let i = 0; i < count && i < reviews.length; i++) {
+                const r = reviews[i];
+
+                // Random profile picture from randomuser.me
+                const imgUrl = `https://randomuser.me/api/portraits/${r.gender}/${Math.floor(Math.random() * 80)}.jpg`;
+
+                // Generate star ratings
+                const stars = generateStars(r.rating);
+
+                // Create verified badge if applicable
+                const verifiedBadge = r.verified ?
+                    `<span class="bg-blue-100 text-blue-600 text-xs font-semibold px-2 py-1 rounded ml-2">Verified</span>` : '';
+
+                // Create photo if available
+                const reviewPhoto = r.photo ?
+                    `<div class="mt-4">
+                        <img src="${r.photo}" alt="Review photo" class="review-image rounded-lg w-full h-40 object-cover">
+                     </div>` : '';
+
+                // Create card HTML
+                const card = `
+                    <div class="review-card bg-white rounded-2xl shadow-md p-6 border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <img src="${imgUrl}" alt="Reviewer" class="w-12 h-12 rounded-full mr-4 object-cover">
+                            <div class="flex-1">
+                                <div class="flex items-center">
+                                    <h3 class="font-semibold text-lg">${r.name}</h3>
+                                    ${verifiedBadge}
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="rating-stars mr-2">${stars}</div>
+                                    <span class="text-gray-500 text-sm">${r.date}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600">"${r.review}"</p>
+                        ${reviewPhoto}
+                    </div>
+                `;
+                reviewsContainer.innerHTML += card;
+            }
+
+            // Hide load more button if all reviews are displayed
+            if (displayedReviews >= reviews.length) {
+                loadMoreButton.style.display = 'none';
+            }
+        }
+
+        // Initial display
+        displayReviews(displayedReviews);
+
+        // Load more reviews
+        loadMoreButton.addEventListener('click', function () {
+            displayedReviews += 3;
+            displayReviews(displayedReviews);
+        });
+
+        // Filter buttons functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+
+                // In a real implementation, you would filter reviews here
+                // For this example, we'll just log the filter
+                console.log('Filtering by:', this.textContent);
+            });
+        });
+
+        // Star rating for review form
+        const ratingStars = document.querySelectorAll('#rating-stars i');
+        const ratingValue = document.getElementById('rating-value');
+
+        ratingStars.forEach(star => {
+            star.addEventListener('click', function () {
+                const rating = parseInt(this.getAttribute('data-rating'));
+                ratingValue.value = rating;
+
+                // Update star display
+                ratingStars.forEach((s, index) => {
+                    if (index < rating) {
+                        s.classList.remove('far');
+                        s.classList.add('fas', 'text-yellow-500');
+                    } else {
+                        s.classList.remove('fas', 'text-yellow-500');
+                        s.classList.add('far', 'text-gray-400');
+                    }
+                });
+            });
+
+            // Hover effect
+            star.addEventListener('mouseover', function () {
+                const rating = parseInt(this.getAttribute('data-rating'));
+                ratingStars.forEach((s, index) => {
+                    if (index < rating) {
+                        s.classList.add('text-yellow-300');
+                    }
+                });
+            });
+
+            star.addEventListener('mouseout', function () {
+                ratingStars.forEach(s => {
+                    s.classList.remove('text-yellow-300');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
