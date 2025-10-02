@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicious Bites - Premium Restaurant & Food Delivery</title>
+    <meta name="description"
+        content="Experience gourmet flavors with Delicious Bites. Fresh ingredients, expert chefs, and premium dining experience.">
+    <link rel="icon" href="img/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#ef4444',
+                        'primary-dark': '#b91c1c',
+                        'accent': '#f59e0b',
+                        'accent-dark': '#d97706',
+                        'secondary': '#10b981',
+                        'dark': '#1f2937'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'bounce-in': 'bounceIn 1s ease-out',
+                        'scale-in': 'scaleIn 0.6s ease-out',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s infinite',
+                        'slide-in-right': 'slideInRight 0.8s ease-out'
+                    },
+                    keyframes: {
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        slideUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        bounceIn: { '0%': { opacity: '0', transform: 'scale(0.3)' }, '50%': { opacity: '1', transform: 'scale(1.05)' }, '70%': { transform: 'scale(0.9)' }, '100%': { transform: 'scale(1)' } },
+                        scaleIn: { '0%': { opacity: '0', transform: 'scale(0.8)' }, '100%': { opacity: '1', transform: 'scale(1)' } },
+                        float: { '0%,100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-20px)' } },
+                        slideInRight: { '0%': { opacity: '0', transform: 'translateX(100px)' }, '100%': { opacity: '1', transform: 'translateX(0)' } }
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="flex flex-col min-h-screen bg-gray-50">
+
+    <!-- Enhanced Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto flex items-center justify-between px-6 py-4">
+            <!-- Logo -->
+            <div class="text-2xl font-bold text-red-600 flex items-center space-x-2">
+                <i class="fas fa-utensils"></i>
+                <a href="index.html" class="hover:text-primary-dark transition-colors">Delicious Bites</a>
+            </div>
+
+
+            <!-- Menu Links -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html"
+                    class="text-gray-800 hover:text-primary-dark font-medium transition-colors relative group">
+                    Home
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="menu.html"
+                    class="text-gray-800 hover:text-primary-dark font-medium transition-colors relative group">
+                    Menu
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="product.html"
+                    class="text-gray-800 hover:text-primary-dark font-medium transition-colors relative group">
+                    Products
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="about.html"
+                    class="text-gray-800 hover:text-primary-dark font-medium transition-colors relative group">
+                    About Us
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="blog.html"
+                    class="text-gray-800 hover:text-primary-dark font-medium transition-colors relative group">
+                    Blog
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="contact.html"
+                    class="text-gray-800 hover:text-primary-dark font-medium transition-colors relative group">
+                    Contact
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="reviews.html"
+                    class="text-gray-800 hover:text-primary-dark font-medium transition-colors relative group">
+                    Reviews
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                </a>
+            </nav>
+
+            <!-- Icons -->
+            <div class="flex items-center space-x-6">
+                <a href="card.html" class="relative text-gray-800 hover:text-red-600 transition-colors group">
+                    <i class="fas fa-shopping-cart text-xl group-hover:scale-110 transition-transform"></i>
+                    <span
+                        class="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full animate-pulse">0</span>
+                </a>
+                <a href="login.html" class="text-gray-800 hover:text-red-600 transition-colors group">
+                    <i class="fas fa-user text-xl group-hover:scale-110 transition-transform"></i>
+                </a>
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-gray-800 hover:text-red-600 transition-colors" id="mobile-menu-button">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white shadow-lg" id="mobile-menu">
+            <div class="px-6 py-4 space-y-4">
+                <a href="index.html"
+                    class="block text-gray-800 hover:text-primary-dark font-medium transition-colors">Home</a>
+                <a href="menu.html"
+                    class="block text-gray-800 hover:text-primary-dark font-medium transition-colors">Menu</a>
+                <a href="product.html"
+                    class="block text-gray-800 hover:text-primary-dark font-medium transition-colors">Products</a>
+                <a href="about.html"
+                    class="block text-gray-800 hover:text-primary-dark font-medium transition-colors">About Us</a>
+                <a href="blog.html"
+                    class="block text-gray-800 hover:text-primary-dark font-medium transition-colors">Blog</a>
+                <a href="contact.html"
+                    class="block text-gray-800 hover:text-primary-dark font-medium transition-colors">Contact</a>
+                <a href="reviews.html"
+                    class="block text-gray-800 hover:text-primary-dark font-medium transition-colors">Reviews</a>
+                <a href="card.html"
+                    class="block text-gray-800 hover:text-primary-dark font-medium transition-colors">Cart</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-red-600 to-red-800 text-white overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-10 left-10 w-20 h-20 bg-white rounded-full animate-float"></div>
+            <div class="absolute top-40 right-20 w-16 h-16 bg-accent rounded-full animate-float"
+                style="animation-delay: 2s;"></div>
+            <div class="absolute bottom-20 left-1/4 w-12 h-12 bg-white rounded-full animate-float"
+                style="animation-delay: 4s;"></div>
+        </div>
+
+        <div
+            class="container mx-auto px-4 py-32 flex flex-col md:flex-row items-center md:justify-between relative z-10">
+            <div class="md:w-1/2 space-y-6 animate-fade-in">
+                <div
+                    class="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
+                    <i class="fas fa-star text-accent"></i>
+                    <span class="text-sm">Rated 4.9/5 by 2000+ Customers</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold leading-tight">
+                    Delicious Meals,
+                    <span class="text-accent">Fresh</span>
+                    Ingredients
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-100 leading-relaxed">
+                    Experience gourmet flavors crafted by master chefs. Freshly made, naturally tasty, delivered to your
+                    doorstep.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="menu.html"
+                        class="inline-flex items-center justify-center bg-accent text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-accent-dark hover:scale-105 transition-all duration-300 group">
+                        <span>Explore Our Menu</span>
+                        <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="#features"
+                        class="inline-flex items-center justify-center bg-white/20 backdrop-blur-sm text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-white/30 hover:scale-105 transition-all duration-300">
+                        <i class="fas fa-play-circle mr-2"></i>
+                        <span>Watch Story</span>
+                    </a>
+                </div>
+
+                <!-- Stats -->
+                <div class="grid grid-cols-3 gap-4 pt-8">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold">50+</div>
+                        <div class="text-gray-200 text-sm">Master Chefs</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold">200+</div>
+                        <div class="text-gray-200 text-sm">Premium Dishes</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold">5K+</div>
+                        <div class="text-gray-200 text-sm">Happy Customers</div>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-1/2 mt-10 md:mt-0 relative">
+                <img src="img/Dishes food .jpg" alt="Delicious Food"
+                    class="w-full rounded-3xl shadow-2xl animate-float">
+                <!-- Floating Badges -->
+                <div
+                    class="absolute -top-4 -left-4 bg-white text-dark px-4 py-2 rounded-full shadow-lg animate-bounce-in">
+                    <i class="fas fa-award text-accent mr-2"></i>
+                    Best Restaurant 2024
+                </div>
+                <div class="absolute -bottom-4 -right-4 bg-accent text-white px-4 py-2 rounded-full shadow-lg animate-bounce-in"
+                    style="animation-delay: 0.5s;">
+                    <i class="fas fa-bolt mr-2"></i>
+                    Fast Delivery
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4 text-center animate-slide-up">Why Choose Delicious Bites?
+            </h2>
+            <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto animate-slide-up">
+                We combine traditional recipes with modern techniques to deliver an unforgettable dining experience
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div
+                    class="text-center p-6 rounded-2xl hover:shadow-xl transition-all duration-300 group animate-scale-in">
+                    <div
+                        class="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-leaf text-3xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Fresh Ingredients</h3>
+                    <p class="text-gray-600">Locally sourced, organic ingredients for the best flavor and nutrition</p>
+                </div>
+
+                <div class="text-center p-6 rounded-2xl hover:shadow-xl transition-all duration-300 group animate-scale-in"
+                    style="animation-delay: 0.2s;">
+                    <div
+                        class="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-clock text-3xl text-accent"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Quick Delivery</h3>
+                    <p class="text-gray-600">Hot and fresh meals delivered within 30 minutes guaranteed</p>
+                </div>
+
+                <div class="text-center p-6 rounded-2xl hover:shadow-xl transition-all duration-300 group animate-scale-in"
+                    style="animation-delay: 0.4s;">
+                    <div
+                        class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-medal text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Award Winning</h3>
+                    <p class="text-gray-600">Recognized as the best restaurant in the city for 3 consecutive years</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Dishes -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4 animate-slide-up">Featured Dishes</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto animate-slide-up">
+                    Handpicked by our master chefs. Each dish tells a story of flavor and passion.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Dish 1 -->
+                <div
+                    class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 group animate-scale-in">
+                    <div class="relative overflow-hidden">
+                        <img src="img/Carbonara.jpg" alt="Spaghetti Carbonara"
+                            class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div
+                            class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-bold">
+                            $18.99
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300">
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-gray-800">Spaghetti Carbonara</h3>
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <span class="ml-1 text-gray-600">4.8</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">Classic Italian pasta with creamy sauce, premium pancetta, and
+                            aged parmesan.</p>
+                        <div class="flex items-center justify-between">
+                            <a href="menu.html"
+                                class="inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors group">
+                                Order Now
+                                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                            <button
+                                class="w-10 h-10 bg-red-100 text-primary rounded-full hover:bg-primary hover:text-white transition-colors flex items-center justify-center">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dish 2 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 group animate-scale-in"
+                    style="animation-delay: 0.1s;">
+                    <div class="relative overflow-hidden">
+                        <img src="img/dish2.webp" alt="Grilled Salmon"
+                            class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div
+                            class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-bold">
+                            $24.99
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-gray-800">Grilled Salmon</h3>
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <span class="ml-1 text-gray-600">4.9</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">Fresh Atlantic salmon with lemon herb butter, seasonal vegetables,
+                            and dill sauce.</p>
+                        <div class="flex items-center justify-between">
+                            <a href="menu.html"
+                                class="inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors group">
+                                Order Now
+                                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                            <button
+                                class="w-10 h-10 bg-red-100 text-primary rounded-full hover:bg-primary hover:text-white transition-colors flex items-center justify-center">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dish 3 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 group animate-scale-in"
+                    style="animation-delay: 0.2s;">
+                    <div class="relative overflow-hidden">
+                        <img src="img/dish(3).jpeg" alt="Vegan Buddha Bowl"
+                            class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div
+                            class="absolute top-4 right-4 bg-secondary text-white px-3 py-1 rounded-full text-sm font-bold">
+                            $16.99
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-gray-800">Vegan Buddha Bowl</h3>
+                            <div class="flex items-center text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <span class="ml-1 text-gray-600">4.7</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">Organic quinoa, roasted vegetables, avocado, and tahini dressing.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <a href="menu.html"
+                                class="inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors group">
+                                Order Now
+                                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                            <button
+                                class="w-10 h-10 bg-red-100 text-primary rounded-full hover:bg-primary hover:text-white transition-colors flex items-center justify-center">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 animate-fade-in">
+                <a href="menu.html"
+                    class="inline-flex items-center bg-primary text-white font-bold px-8 py-4 rounded-xl hover:bg-primary-dark hover:scale-105 transition-all duration-300">
+                    View Full Menu
+                    <i class="fas fa-utensils ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers -->
+    <section class="py-20 bg-gradient-to-r from-accent to-accent-dark text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-4 animate-bounce-in">Special Offers</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto animate-slide-up">
+                Don't miss our limited time offers and seasonal specials
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div
+                    class="bg-white/20 backdrop-blur-sm rounded-2xl p-6 hover:scale-105 transition-transform duration-300 animate-scale-in">
+                    <div class="text-3xl font-bold mb-2">30% OFF</div>
+                    <div class="text-lg mb-4">First Order</div>
+                    <div class="text-sm">Use code: WELCOME30</div>
+                </div>
+
+                <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-6 hover:scale-105 transition-transform duration-300 animate-scale-in"
+                    style="animation-delay: 0.2s;">
+                    <div class="text-3xl font-bold mb-2">Free Delivery</div>
+                    <div class="text-lg mb-4">On orders over $35</div>
+                    <div class="text-sm">Valid until month end</div>
+                </div>
+
+                <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-6 hover:scale-105 transition-transform duration-300 animate-scale-in"
+                    style="animation-delay: 0.4s;">
+                    <div class="text-3xl font-bold mb-2">Family Deal</div>
+                    <div class="text-lg mb-4">4 meals + dessert</div>
+                    <div class="text-sm">Only $49.99</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="bg-gray-100 py-20">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center md:space-x-12">
+            <div class="md:w-1/2 mb-10 md:mb-0 relative">
+                <img src="img/chef-antonio-lerro-2.jpg" alt="Chef Antonio"
+                    class="rounded-3xl shadow-lg w-full animate-slide-up">
+                <div class="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl p-6 animate-slide-in-right">
+                    <div class="text-3xl font-bold text-primary mb-2">15+</div>
+                    <div class="text-gray-600">Years of Experience</div>
+                </div>
+            </div>
+            <div class="md:w-1/2 space-y-6">
+                <h2 class="text-4xl font-bold text-gray-800 animate-slide-up">Our Culinary Story</h2>
+                <p class="text-gray-600 leading-relaxed">
+                    Delicious Bites began as a small family dream in 2008 and has grown into an award-winning restaurant
+                    celebrated for its innovative approach to traditional cuisine. Our master chefs combine generations
+                    of culinary wisdom with modern techniques.
+                </p>
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-check-circle text-secondary"></i>
+                        <span class="text-gray-700">100% organic ingredients</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-check-circle text-secondary"></i>
+                        <span class="text-gray-700">Sustainable sourcing</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-check-circle text-secondary"></i>
+                        <span class="text-gray-700">Master chef supervision</span>
+                    </div>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="about.html"
+                        class="inline-flex items-center bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-dark hover:scale-105 transition-all">
+                        Our Story
+                        <i class="fas fa-book-open ml-2"></i>
+                    </a>
+                    <a href="contact.html"
+                        class="inline-flex items-center bg-white text-gray-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 hover:scale-105 transition-all border">
+                        Visit Us
+                        <i class="fas fa-map-marker-alt ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4 text-center">What Our Customers Say</h2>
+            <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+                Join thousands of satisfied customers who trust us for their dining experience
+            </p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=64&h=64&fit=crop&crop=face"
+                            alt="Sarah Johnson" class="w-12 h-12 rounded-full">
+                        <div class="ml-4">
+                            <div class="font-bold">Sarah Johnson</div>
+                            <div class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "The Carbonara here is absolutely divine! Best Italian food I've had outside of Italy."
+                    </p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=64&h=64&fit=crop&crop=face"
+                            alt="Mike Chen" class="w-12 h-12 rounded-full">
+                        <div class="ml-4">
+                            <div class="font-bold">Mike Chen</div>
+                            <div class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Fast delivery and the food arrived hot. The salmon was perfectly cooked. Highly recommended!"
+                    </p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=64&h=64&fit=crop&crop=face"
+                            alt="Emily Davis" class="w-12 h-12 rounded-full">
+                        <div class="ml-4">
+                            <div class="font-bold">Emily Davis</div>
+                            <div class="text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "As a vegan, I'm impressed with their plant-based options. The Buddha Bowl is my weekly
+                        favorite!"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Preview Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Latest Recipes & Tips</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Discover culinary secrets, cooking tips, and behind-the-scenes stories from our kitchen
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog 1 -->
+                <article
+                    class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 group">
+                    <div class="relative overflow-hidden">
+                        <img src="img/pasta.jpeg" alt="5 Secrets to Perfect Pasta"
+                            class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div
+                            class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-bold">
+                            Cooking Tips
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+                            5 Secrets to Perfect Pasta Every Time
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            Master the art of pasta making with these professional techniques used by Italian chefs.
+                        </p>
+                        <div class="flex items-center justify-between text-sm text-gray-500">
+                            <span><i class="far fa-clock mr-1"></i> 5 min read</span>
+                            <span><i class="far fa-calendar mr-1"></i> Mar 15, 2024</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog 2 -->
+                <article
+                    class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 group">
+                    <div class="relative overflow-hidden">
+                        <img src="img/Recipes.webp" alt="Healthy Breakfast Ideas"
+                            class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div
+                            class="absolute top-4 left-4 bg-secondary text-white px-3 py-1 rounded-full text-sm font-bold">
+                            Nutrition
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+                            7 Healthy Breakfast Ideas for Busy Mornings
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            Quick, nutritious breakfast recipes that will fuel your day without the morning rush.
+                        </p>
+                        <div class="flex items-center justify-between text-sm text-gray-500">
+                            <span><i class="far fa-clock mr-1"></i> 7 min read</span>
+                            <span><i class="far fa-calendar mr-1"></i> Mar 12, 2024</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog 3 -->
+                <article
+                    class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 group">
+                    <div class="relative overflow-hidden">
+                        <img src="img/top 10 salades.jpg" alt="Top 10 Summer Salads"
+                            class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div
+                            class="absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-sm font-bold">
+                            Seasonal
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+                            Top 10 Refreshing Salads for Summer
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            Light, refreshing salad recipes perfect for hot summer days and outdoor dining.
+                        </p>
+                        <div class="flex items-center justify-between text-sm text-gray-500">
+                            <span><i class="far fa-clock mr-1"></i> 6 min read</span>
+                            <span><i class="far fa-calendar mr-1"></i> Mar 8, 2024</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="blog.html"
+                    class="inline-flex items-center bg-white text-gray-800 font-bold px-8 py-4 rounded-xl hover:bg-gray-50 hover:scale-105 transition-all duration-300 border">
+                    Read More Articles
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-20 bg-primary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-4">Stay Updated</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">
+                Subscribe to get exclusive recipes, special offers, and cooking tips delivered to your inbox
+            </p>
+
+            <div class="max-w-md mx-auto flex">
+                <input type="email" placeholder="Enter your email"
+                    class="flex-1 px-6 py-4 rounded-l-2xl border-0 focus:ring-2 focus:ring-accent text-gray-800">
+                <button type="submit"
+                    class="bg-accent hover:bg-accent-dark px-8 py-4 rounded-r-2xl font-bold transition-colors">
+                    Subscribe
+                </button>
+            </div>
+
+            <p class="text-sm mt-4 text-gray-200">
+                No spam ever. Unsubscribe anytime.
+            </p>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="bg-dark text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="text-2xl font-bold text-white mb-4 flex items-center space-x-2">
+                        <i class="fas fa-utensils text-accent"></i>
+                        <span>Delicious Bites</span>
+                    </div>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Crafting unforgettable dining experiences with passion, quality ingredients, and culinary
+                        excellence since 2008.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html"
+                                class="text-gray-400 hover:text-white transition-colors flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 text-accent group-hover:translate-x-1 transition-transform"></i>
+                                Home
+                            </a></li>
+                        <li><a href="menu.html"
+                                class="text-gray-400 hover:text-white transition-colors flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 text-accent group-hover:translate-x-1 transition-transform"></i>
+                                Our Menu
+                            </a></li>
+                        <li><a href="about.html"
+                                class="text-gray-400 hover:text-white transition-colors flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 text-accent group-hover:translate-x-1 transition-transform"></i>
+                                About Us
+                            </a></li>
+                        <li><a href="blog.html"
+                                class="text-gray-400 hover:text-white transition-colors flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 text-accent group-hover:translate-x-1 transition-transform"></i>
+                                Blog & Recipes
+                            </a></li>
+                        <li><a href="contact.html"
+                                class="text-gray-400 hover:text-white transition-colors flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 text-accent group-hover:translate-x-1 transition-transform"></i>
+                                Contact
+                            </a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Contact Info</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt mt-1 text-accent"></i>
+                            <span class="text-gray-400">123 Gourmet Street<br>Food District, FD 12345</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-accent"></i>
+                            <span class="text-gray-400">+1 (555) 123-4567</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-accent"></i>
+                            <span class="text-gray-400">hello@deliciousbites.com</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-clock text-accent"></i>
+                            <span class="text-gray-400">Mon-Sun: 11AM - 10PM</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- App Download -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Mobile App</h3>
+                    <p class="text-gray-400 mb-4">Download our app for faster ordering and exclusive mobile deals.</p>
+                    <div class="space-y-3">
+                        <a href="#"
+                            class="flex items-center bg-gray-700 hover:bg-gray-600 rounded-xl p-3 transition-colors group">
+                            <i class="fab fa-apple text-2xl mr-3"></i>
+                            <div>
+                                <div class="text-xs text-gray-400">Download on the</div>
+                                <div class="font-bold">App Store</div>
+                            </div>
+                        </a>
+                        <a href="#"
+                            class="flex items-center bg-gray-700 hover:bg-gray-600 rounded-xl p-3 transition-colors group">
+                            <i class="fab fa-google-play text-xl mr-3"></i>
+                            <div>
+                                <div class="text-xs text-gray-400">Get it on</div>
+                                <div class="font-bold">Google Play</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-700 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div class="text-gray-400 text-sm">
+                        © 2024 Delicious Bites. All rights reserved. | Crafted with <i
+                            class="fas fa-heart text-red-500"></i> for food lovers
+                    </div>
+                    <div class="flex space-x-6 text-sm">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop"
+        class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full shadow-lg hover:bg-primary-dark hover:scale-110 transition-all duration-300 opacity-0">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', function () {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0');
+                backToTopButton.classList.add('opacity-100');
+            } else {
+                backToTopButton.classList.remove('opacity-100');
+                backToTopButton.classList.add('opacity-0');
+            }
+        });
+
+        backToTopButton.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('shadow-xl', 'bg-white/95', 'backdrop-blur-sm');
+            } else {
+                navbar.classList.remove('shadow-xl', 'bg-white/95', 'backdrop-blur-sm');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
