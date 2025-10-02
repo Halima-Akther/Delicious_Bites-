@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Delicious Bites</title>
+    <link rel="icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/common.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .menu-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .category-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background-color: #ef4444;
+            color: white;
+        }
+
+        .price-tag {
+            background-color: #ef4444;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .dish-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .dish-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .add-to-cart {
+            transition: all 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            background-color: #b91c1c;
+            transform: scale(1.05);
+        }
+
+        .mobile-menu {
+            transition: max-height 0.5s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen bg-gray-50">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex items-center justify-between px-6 py-4">
+            <!-- Logo -->
+            <div class="text-2xl font-bold text-red-600 flex items-center">
+                <i class="fas fa-utensils mr-2"></i>
+                <a href="index.html">Delicious Bites</a>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">Home</a>
+                <a href="menu.html"
+                    class="text-red-600 font-medium transition-colors border-b-2 border-red-600">Menu</a>
+                <a href="product.html"
+                    class="text-gray-800 hover:text-red-600 font-medium transition-colors">Products</a>
+                <a href="about.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">About Us</a>
+                <a href="blog.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">Blog</a>
+                <a href="contact.html"
+                    class="text-gray-800 hover:text-red-600 font-medium transition-colors">Contact</a>
+                <a href="reviews.html"
+                    class="text-gray-800 hover:text-red-600 font-medium transition-colors">Reviews</a>
+            </div>
+
+            <!-- Icons and Mobile Menu Button -->
+            <div class="flex items-center space-x-4">
+                <a href="cart.html" class="relative text-gray-800 hover:text-red-600 transition-colors">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span
+                        class="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">3</span>
+                </a>
+                <a href="login.html" class="text-gray-800 hover:text-red-600 transition-colors">
+                    <i class="fas fa-user text-xl"></i>
+                </a>
+                <button id="mobile-menu-button" class="md:hidden text-gray-800">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-white px-6 py-4 border-t">
+            <div class="flex flex-col space-y-4">
+                <a href="index.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">Home</a>
+                <a href="menu.html" class="text-red-600 font-medium transition-colors">Menu</a>
+                <a href="product.html"
+                    class="text-gray-800 hover:text-red-600 font-medium transition-colors">Products</a>
+                <a href="about.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">About Us</a>
+                <a href="blog.html" class="text-gray-800 hover:text-red-600 font-medium transition-colors">Blog</a>
+                <a href="contact.html"
+                    class="text-gray-800 hover:text-red-600 font-medium transition-colors">Contact</a>
+                <a href="reviews.html"
+                    class="text-gray-800 hover:text-red-600 font-medium transition-colors">Reviews</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="menu-hero text-white py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4">Our Menu</h1>
+            <p class="mt-4 text-lg md:text-xl max-w-2xl mx-auto">Explore our delicious meals made with fresh
+                ingredients, passion, and culinary expertise.</p>
+            <div class="mt-8">
+                <a href="#featured-dishes"
+                    class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-8 rounded-full inline-flex items-center transition-colors">
+                    Explore Dishes
+                    <i class="fas fa-arrow-down ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Categories -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4 text-center">Menu Categories</h2>
+            <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">Browse our carefully crafted menu categories,
+                each offering a unique culinary experience.</p>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Pasta Category -->
+                <div class="category-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Pasta" class="w-full h-56 object-cover">
+                        <div
+                            class="absolute top-4 right-4 bg-red-600 text-white text-sm font-semibold py-1 px-3 rounded-full">
+                            12 Dishes
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-pasta text-red-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Pasta</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Delicious Italian pasta dishes made fresh daily with authentic
+                            recipes and premium ingredients.</p>
+                        <a href="#pasta"
+                            class="inline-flex items-center bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">
+                            View Dishes
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Seafood Category -->
+                <div class="category-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1559737558-2f6a706dfa5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Seafood" class="w-full h-56 object-cover">
+                        <div
+                            class="absolute top-4 right-4 bg-red-600 text-white text-sm font-semibold py-1 px-3 rounded-full">
+                            8 Dishes
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-fish text-red-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Seafood</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Fresh seafood meals grilled, baked, or pan-seared to perfection
+                            with complementary flavors.</p>
+                        <a href="#seafood"
+                            class="inline-flex items-center bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">
+                            View Dishes
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Vegan Category -->
+                <div class="category-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Vegan" class="w-full h-56 object-cover">
+                        <div
+                            class="absolute top-4 right-4 bg-green-600 text-white text-sm font-semibold py-1 px-3 rounded-full">
+                            10 Dishes
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-leaf text-green-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Vegan</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Healthy vegan options full of flavor and nutrients, crafted to
+                            satisfy all palates.</p>
+                        <a href="#vegan"
+                            class="inline-flex items-center bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">
+                            View Dishes
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Meat & Grills Category -->
+                <div class="category-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Meat & Grills" class="w-full h-56 object-cover">
+                        <div
+                            class="absolute top-4 right-4 bg-red-600 text-white text-sm font-semibold py-1 px-3 rounded-full">
+                            15 Dishes
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-drumstick-bite text-red-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Meat & Grills</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Juicy steaks, grilled chicken, and more for meat lovers, prepared
+                            with premium cuts.</p>
+                        <a href="#meat"
+                            class="inline-flex items-center bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">
+                            View Dishes
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Desserts Category -->
+                <div class="category-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                            alt="Desserts" class="w-full h-56 object-cover">
+                        <div
+                            class="absolute top-4 right-4 bg-yellow-600 text-white text-sm font-semibold py-1 px-3 rounded-full">
+                            9 Dishes
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-ice-cream text-yellow-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Desserts</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Sweet treats to complete your meal perfectly, from classic
+                            favorites to innovative creations.</p>
+                        <a href="#desserts"
+                            class="inline-flex items-center bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">
+                            View Dishes
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Drinks Category -->
+                <div class="category-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                            alt="Drinks" class="w-full h-56 object-cover">
+                        <div
+                            class="absolute top-4 right-4 bg-blue-600 text-white text-sm font-semibold py-1 px-3 rounded-full">
+                            14 Drinks
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-glass-whiskey text-blue-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Drinks</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Refreshing beverages to accompany your meals, from signature
+                            cocktails to fresh juices.</p>
+                        <a href="#drinks"
+                            class="inline-flex items-center bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">
+                            View Drinks
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Dishes Section -->
+    <section id="featured-dishes" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Chef's Specials</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Discover our most popular dishes, carefully crafted by our
+                    talented chefs using the finest ingredients.</p>
+            </div>
+
+            <!-- Dish Filters -->
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <button
+                    class="filter-btn bg-white text-gray-800 py-2 px-4 rounded-full border border-red-200 hover:bg-red-100 active">All
+                    Dishes</button>
+                <button
+                    class="filter-btn bg-white text-gray-800 py-2 px-4 rounded-full border border-red-200 hover:bg-red-100">Appetizers</button>
+                <button
+                    class="filter-btn bg-white text-gray-800 py-2 px-4 rounded-full border border-red-200 hover:bg-red-100">Main
+                    Courses</button>
+                <button
+                    class="filter-btn bg-white text-gray-800 py-2 px-4 rounded-full border border-red-200 hover:bg-red-100">Desserts</button>
+                <button
+                    class="filter-btn bg-white text-gray-800 py-2 px-4 rounded-full border border-red-200 hover:bg-red-100">Vegetarian</button>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Dish 1 -->
+                <div class="dish-card bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1450&q=80"
+                            alt="Truffle Pasta" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4 price-tag">$18.99</div>
+                        <div
+                            class="absolute top-4 right-4 bg-red-600 text-white text-sm font-semibold py-1 px-2 rounded">
+                            <i class="fas fa-star mr-1"></i>4.9
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Truffle Mushroom Pasta</h3>
+                        <p class="text-gray-600 mb-4">Creamy pasta with wild mushrooms and black truffle oil, topped
+                            with parmesan.</p>
+                        <div class="flex justify-between items-center">
+                            <button
+                                class="add-to-cart bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition flex items-center">
+                                <i class="fas fa-plus mr-2"></i>
+                                Add to Cart
+                            </button>
+                            <div class="flex items-center text-gray-500">
+                                <i class="fas fa-clock mr-1"></i>
+                                <span>20 min</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dish 2 -->
+                <div class="dish-card bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1606755962773-d324e2dabd5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Grilled Salmon" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4 price-tag">$22.99</div>
+                        <div
+                            class="absolute top-4 right-4 bg-red-600 text-white text-sm font-semibold py-1 px-2 rounded">
+                            <i class="fas fa-star mr-1"></i>4.8
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Grilled Salmon with Lemon Butter</h3>
+                        <p class="text-gray-600 mb-4">Fresh Atlantic salmon grilled to perfection with a zesty lemon
+                            butter sauce.</p>
+                        <div class="flex justify-between items-center">
+                            <button
+                                class="add-to-cart bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition flex items-center">
+                                <i class="fas fa-plus mr-2"></i>
+                                Add to Cart
+                            </button>
+                            <div class="flex items-center text-gray-500">
+                                <i class="fas fa-clock mr-1"></i>
+                                <span>25 min</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dish 3 -->
+                <div class="dish-card bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1380&q=80"
+                            alt="Avocado Burger" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4 price-tag">$16.99</div>
+                        <div
+                            class="absolute top-4 right-4 bg-green-600 text-white text-sm font-semibold py-1 px-2 rounded">
+                            Vegan
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Avocado Veggie Burger</h3>
+                        <p class="text-gray-600 mb-4">Plant-based burger with fresh avocado, tomato, and our signature
+                            vegan sauce.</p>
+                        <div class="flex justify-between items-center">
+                            <button
+                                class="add-to-cart bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition flex items-center">
+                                <i class="fas fa-plus mr-2"></i>
+                                Add to Cart
+                            </button>
+                            <div class="flex items-center text-gray-500">
+                                <i class="fas fa-clock mr-1"></i>
+                                <span>15 min</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#"
+                    class="bg-white text-red-600 border border-red-600 hover:bg-red-50 font-semibold py-3 px-8 rounded-full transition-colors inline-flex items-center">
+                    View Full Menu
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers Section -->
+    <section class="py-16 bg-red-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Today's Special Offers</h2>
+            <p class="text-red-100 mb-8 max-w-2xl mx-auto">Take advantage of our limited-time offers and enjoy your
+                favorite dishes at special prices.</p>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <!-- Offer 1 -->
+                <div class="bg-white text-gray-800 rounded-2xl p-6 shadow-lg">
+                    <div class="text-red-600 text-4xl font-bold mb-2">20% OFF</div>
+                    <h3 class="text-xl font-bold mb-2">Family Dinner</h3>
+                    <p class="text-gray-600 mb-4">Every Thursday from 5-9 PM</p>
+                    <div class="text-sm text-gray-500">Valid for orders over $40</div>
+                </div>
+
+                <!-- Offer 2 -->
+                <div class="bg-white text-gray-800 rounded-2xl p-6 shadow-lg">
+                    <div class="text-red-600 text-4xl font-bold mb-2">Buy 1 Get 1</div>
+                    <h3 class="text-xl font-bold mb-2">Dessert Night</h3>
+                    <p class="text-gray-600 mb-4">Every Tuesday after 7 PM</p>
+                    <div class="text-sm text-gray-500">On selected desserts</div>
+                </div>
+
+                <!-- Offer 3 -->
+                <div class="bg-white text-gray-800 rounded-2xl p-6 shadow-lg">
+                    <div class="text-red-600 text-4xl font-bold mb-2">Free Drink</div>
+                    <h3 class="text-xl font-bold mb-2">Lunch Special</h3>
+                    <p class="text-gray-600 mb-4">Monday to Friday 12-3 PM</p>
+                    <div class="text-sm text-gray-500">With any main course</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-red-600 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-utensils mr-2"></i>
+                        Delicious Bites
+                    </h3>
+                    <p class="text-gray-100 mb-4">Fresh and tasty meals made with love and high-quality ingredients.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-100 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-100 hover:text-white transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-100 hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-100 hover:text-white transition-colors">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-100 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="menu.html" class="text-gray-100 hover:text-white transition-colors">Menu</a></li>
+                        <li><a href="blog.html" class="text-gray-100 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="about.html" class="text-gray-100 hover:text-white transition-colors">About Us</a>
+                        </li>
+                        <li><a href="reviews.html" class="text-gray-100 hover:text-white transition-colors">Reviews</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start space-x-2">
+                            <i class="fas fa-map-marker-alt mt-1 text-white"></i>
+                            <span class="text-gray-100">123 Food Street, Gourmet City</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-phone text-white"></i>
+                            <span class="text-gray-100">+1 (234) 567-8900</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-envelope text-white"></i>
+                            <span class="text-gray-100">info@deliciousbites.com</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-100 mb-4">Subscribe to get recipes and updates from Delicious Bites.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email"
+                            class="px-4 py-2 w-full rounded-l-md focus:outline-none text-gray-800">
+                        <button type="submit"
+                            class="bg-red-500 hover:bg-red-700 px-4 py-2 rounded-r-md transition-colors">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-red-700 mt-10 pt-6 text-center text-gray-200">
+                <p>© 2025 Delicious Bites. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('open');
+        });
+
+        // Filter buttons functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+
+                // In a real implementation, you would filter dishes here
+                // For this example, we'll just log the filter
+                console.log('Filtering by:', this.textContent);
+            });
+        });
+
+        // Add to cart functionality
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                // Animation effect
+                this.innerHTML = '<i class="fas fa-check mr-2"></i>Added!';
+                this.style.backgroundColor = '#10b981';
+
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-plus mr-2"></i>Add to Cart';
+                    this.style.backgroundColor = '';
+                }, 2000);
+
+                // In a real implementation, you would add the item to cart
+                console.log('Item added to cart');
+            });
+        });
+    </script>
+</body>
+
+</html>
